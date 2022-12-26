@@ -1,0 +1,21 @@
+{
+  "name": "@expensify/lib",
+  "version": "1.0.0",
+  "description": "Core lib for wallet app",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist/src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --no-cache --detectOpenHandles --config ./tests/jest-e2e.json",
+    "pretty": "prettier --write \"**/*.{js,jsx,json,ts}\""
+  },
+  "dependencies": {
+    "later": "^1.2.0",
+    "lokijs": "^1.5.12"
+  },
+  "keywords": [],
+  "author": "Aman Desai <amandesai01@gmail.com>"
+}
