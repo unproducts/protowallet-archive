@@ -1,5 +1,5 @@
 {
-  "name": "@expensify/lib",
+  "name": "@wallet/lib",
   "version": "1.0.0",
   "description": "Core lib for wallet app",
   "main": "dist/index.js",
