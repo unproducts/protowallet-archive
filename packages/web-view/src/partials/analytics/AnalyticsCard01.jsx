@@ -29,13 +29,13 @@ function AnalyticsCard01() {
           13000, 11000, 15000, 17000, 18000,
         ],
         fill: true,
-        backgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.blue[500])}, 0.08)`,
-        borderColor: tailwindConfig().theme.colors.indigo[500],
+        backgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.red[200])}, 0.08)`,
+        borderColor: tailwindConfig().theme.colors.red[500],
         borderWidth: 2,
         tension: 0,
         pointRadius: 0,
         pointHoverRadius: 3,
-        pointBackgroundColor: tailwindConfig().theme.colors.indigo[500],
+        pointBackgroundColor: tailwindConfig().theme.colors.red[500],
         clip: 20,
       },
       // Gray line
@@ -47,13 +47,14 @@ function AnalyticsCard01() {
           11000, 16000, 12000, 10000, 10000, 14000, 9000,
           10000, 15000, 12500, 14000, 11000,
         ],
-        borderColor: tailwindConfig().theme.colors.slate[300],
+        borderColor: tailwindConfig().theme.colors.emerald[300],
         fill: false,
+        backgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.emerald[500])}, 0.08)`,
         borderWidth: 2,
         tension: 0,
         pointRadius: 0,
         pointHoverRadius: 3,
-        pointBackgroundColor: tailwindConfig().theme.colors.slate[300],
+        pointBackgroundColor: tailwindConfig().theme.colors.emerald[300],
         clip: 20,
       },
     ],
@@ -62,51 +63,29 @@ function AnalyticsCard01() {
   return (
     <div className="flex flex-col col-span-full xl:col-span-8 bg-white shadow-lg rounded-sm border border-slate-200">
       <header className="px-5 py-4 border-b border-slate-100 flex items-center">
-        <h2 className="font-semibold text-slate-800">Analytics</h2>
+        <h2 className="font-semibold text-slate-800">Account Overview</h2>
       </header>
       <div className="px-5 py-1">
-        <div className="flex flex-wrap">
-          {/* Unique Visitors */}
+        <div className="flex flex-wrap justify-center">
+          {/* Total Spendings */}
           <div className="flex items-center py-2">
             <div className="mr-5">
               <div className="flex items-center">
                 <div className="text-3xl font-bold text-slate-800 mr-2">24.7K</div>
-                <div className="text-sm font-medium text-emerald-500">+49%</div>
+                <div className="text-sm font-medium text-red-500">$</div>
               </div>
-              <div className="text-sm text-slate-500">Unique Visitors</div>
+              <div className="text-sm text-slate-500">Total Spendings</div>
             </div>
             <div className="hidden md:block w-px h-8 bg-slate-200 mr-5" aria-hidden="true"></div>
           </div>
-          {/* Total Pageviews */}
+          {/* Total Income */}
           <div className="flex items-center py-2">
             <div className="mr-5">
               <div className="flex items-center">
                 <div className="text-3xl font-bold text-slate-800 mr-2">56.9K</div>
-                <div className="text-sm font-medium text-emerald-500">+7%</div>
+                <div className="text-sm font-medium text-emerald-500">$</div>
               </div>
-              <div className="text-sm text-slate-500">Total Pageviews</div>
-            </div>
-            <div className="hidden md:block w-px h-8 bg-slate-200 mr-5" aria-hidden="true"></div>
-          </div>
-          {/* Bounce Rate */}
-          <div className="flex items-center py-2">
-            <div className="mr-5">
-              <div className="flex items-center">
-                <div className="text-3xl font-bold text-slate-800 mr-2">54%</div>
-                <div className="text-sm font-medium text-amber-500">-7%</div>
-              </div>
-              <div className="text-sm text-slate-500">Bounce Rate</div>
-            </div>
-            <div className="hidden md:block w-px h-8 bg-slate-200 mr-5" aria-hidden="true"></div>
-          </div>
-          {/* Visit Duration*/}
-          <div className="flex items-center">
-            <div>
-              <div className="flex items-center">
-                <div className="text-3xl font-bold text-slate-800 mr-2">2m 56s</div>
-                <div className="text-sm font-medium text-amber-500">+7%</div>
-              </div>
-              <div className="text-sm text-slate-500">Visit Duration</div>
+              <div className="text-sm text-slate-500">Total Income</div>
             </div>
           </div>
         </div>

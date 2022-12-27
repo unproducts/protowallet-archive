@@ -75,6 +75,9 @@ import AvatarPage from './pages/component/AvatarPage';
 import TooltipPage from './pages/component/TooltipPage';
 import AccordionPage from './pages/component/AccordionPage';
 import IconsPage from './pages/component/IconsPage';
+import WalletDashboard from './pages/wallet/Dashboard';
+import WalletTransactions from './pages/wallet/Transactions';
+import WalletAccounts from './pages/wallet/Accounts';
 
 function App() {
 
@@ -90,6 +93,11 @@ function App() {
     <>
       <Routes>
         <Route exact path="/" element={<Dashboard />} />
+
+        <Route path="/wallet/dashboard" element={<WalletDashboard />} />
+        <Route path="/wallet/transactions" element={<WalletTransactions />} />
+        <Route path="/wallet/accounts" element={<WalletAccounts />} />
+
         <Route path="/dashboard/analytics" element={<Analytics />} />
         <Route path="/dashboard/fintech" element={<Fintech />} />
         <Route path="/ecommerce/customers" element={<Customers />} />
