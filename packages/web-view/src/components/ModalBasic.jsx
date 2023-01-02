@@ -12,14 +12,14 @@ function ModalBasic({
   const modalContent = useRef(null);
 
   // close on click outside
-  useEffect(() => {
-    const clickHandler = ({ target }) => {
-      if (!modalOpen || modalContent.current.contains(target)) return
-      setModalOpen(false);
-    };
-    document.addEventListener('click', clickHandler);
-    return () => document.removeEventListener('click', clickHandler);
-  });
+  // useEffect(() => {
+  //   const clickHandler = ({ target }) => {
+  //     if (!modalOpen || modalContent.current.contains(target)) return
+  //     setModalOpen(false);
+  //   };
+  //   document.addEventListener('click', clickHandler);
+  //   return () => document.removeEventListener('click', clickHandler);
+  // });
 
   // close if the esc key is pressed
   useEffect(() => {

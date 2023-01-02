@@ -21,7 +21,7 @@ function TransactionsTable({
       image: Image01,
       name: 'Form Builder CP',
       date: '22/01/2022',
-      status: 'Pending',
+      status: 'Expense',
       amount: '-$1,299.22',
     },
     {
@@ -29,7 +29,7 @@ function TransactionsTable({
       image: Image02,
       name: 'Imperial Hotel ****',
       date: '22/01/2022',
-      status: 'Completed',
+      status: 'Income',
       amount: '-$1,029.77',
     },
     {
@@ -37,7 +37,7 @@ function TransactionsTable({
       image: Image03,
       name: 'Aprilynne Pills',
       date: '22/01/2022',
-      status: 'Pending',
+      status: 'Expense',
       amount: '+$499.99',
     },
     {
@@ -45,7 +45,7 @@ function TransactionsTable({
       image: Image04,
       name: 'Google Limited UK',
       date: '22/01/2022',
-      status: 'Completed',
+      status: 'Income',
       amount: '-$1,029.77',
     },
     {
@@ -53,7 +53,7 @@ function TransactionsTable({
       image: Image05,
       name: 'Acme LTD UK',
       date: '22/01/2022',
-      status: 'Pending',
+      status: 'Expense',
       amount: '+$2,179.36',
     },
     {
@@ -61,7 +61,7 @@ function TransactionsTable({
       image: Image04,
       name: 'Google Limited UK',
       date: '22/01/2022',
-      status: 'Canceled',
+      status: 'Transfer',
       amount: '-$1,029.77',
     },
     {
@@ -69,7 +69,7 @@ function TransactionsTable({
       image: Image06,
       name: 'Uber',
       date: '22/01/2022',
-      status: 'Completed',
+      status: 'Income',
       amount: '-$272.88',
     },
     {
@@ -77,7 +77,7 @@ function TransactionsTable({
       image: Image07,
       name: 'PublicOne Inc.',
       date: '22/01/2022',
-      status: 'Completed',
+      status: 'Income',
       amount: '-$199.87',
     },
     {
@@ -85,7 +85,7 @@ function TransactionsTable({
       image: Image08,
       name: 'Github Inc.',
       date: '22/01/2022',
-      status: 'Completed',
+      status: 'Income',
       amount: '-$42.87',
     },
     {
@@ -93,7 +93,7 @@ function TransactionsTable({
       image: Image09,
       name: 'Form Builder PRO',
       date: '22/01/2022',
-      status: 'Completed',
+      status: 'Income',
       amount: '-$112.44',
     },
   ];

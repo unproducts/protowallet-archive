@@ -4,9 +4,9 @@ function TransactionsTableItem(props) {
 
   const statusColor = (status) => {
     switch (status) {
-      case 'Completed':
+      case 'Income':
         return 'bg-emerald-100 text-emerald-600';
-      case 'Canceled':
+      case 'Expense':
         return 'bg-rose-100 text-rose-500';
       default:
         return 'bg-slate-100 text-slate-500';
