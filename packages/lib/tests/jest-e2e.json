@@ -2,7 +2,7 @@
   "moduleFileExtensions": ["js", "json", "ts"],
   "rootDir": ".",
   "testEnvironment": "node",
-  "testMatch": ["**/transactions.e2e-spec.ts"],
+  "testMatch": ["**/basic.e2e-spec.ts"],
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
   },

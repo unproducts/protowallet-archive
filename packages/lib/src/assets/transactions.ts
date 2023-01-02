@@ -1,8 +1,9 @@
 import later, { ScheduleData } from 'later';
-import database from './db';
-import { Label, Range, RecurringTransaction, Transaction } from './lookups';
-import { Category, EndRecurrenceBy, RecordType } from './lookups/enums';
-import { generateRandomStringOfLength } from './utils';
+import feed from 'src/feeds';
+import { Label, Range, RecurringTransaction, Transaction } from 'src/lookups';
+import { Category, EndRecurrenceBy, RecordType } from 'src/lookups/enums';
+import { generateRandomStringOfLength } from 'src/utils';
+import { assertAccountExists } from 'src/assets/accounts';
 
 export type GetAllTransactionsOptions = {
   dateRange: Range<Date>;
@@ -13,27 +14,31 @@ export type GetAllTransactionsOptions = {
   amountRange?: Range<number>;
 };
 
+export type CreateTransactionOptions = Omit<Transaction, "id">;
+
+export async function createTransaction(options: CreateTransactionOptions): Promise<Transaction> {
+  await assertAccountExists(options.accountId);
+  return this.feed.transactions.insert({
+    id: generateRandomStringOfLength(10),
+    accountId: options.accountId,
+    type: options.type,
+    category: options.category,
+    amount: options.amount,
+    direction: options.direction,
+    note: options.note,
+    labels: options.labels,
+    timestamp: options.timestamp,
+    isRecurringTransaction: options.isRecurringTransaction,
+  }) as Transaction;
+}
+
 export async function getAllTransactions(options: GetAllTransactionsOptions): Promise<Transaction[]> {
   // TODO: add type safety here. target type: Record<subset of keys of Transaction, any>;
-  const query: Record<string, any> = {
-    timestamp: {
-      $gte: options.dateRange.from.getTime(),
-      $lte: options.dateRange.to.getTime(),
-    },
-  };
-  if (options.accounts) {
-    query.accountId = {
-      $in: options.accounts,
-    };
-  }
-  if (options.categories) {
-    query.category = {
-      $in: options.categories,
-    };
-  }
-  const transactions: Transaction[] = database.transactions.chain().find(query).simplesort('timestamp').data();
+  const query: Record<string, any> = prepareQueryFromOptions(options);
 
-  const recurringTransactions: RecurringTransaction[] = database.recurringTransactions.find();
+  const transactions: Transaction[] = feed.transactions.chain().find(query).simplesort('timestamp').data();
+
+  const recurringTransactions: RecurringTransaction[] = feed.recurringTransactions.find();
   const recurringTransactionsFlat: Transaction[] = await flattenRecurringTransactions(
     recurringTransactions,
     options.dateRange.from,
@@ -100,4 +105,25 @@ function flattenRecurringTransaction(recurringTransaction: RecurringTransaction,
     });
   }
   return generatedTransactions;
+}
+
+function prepareQueryFromOptions(options: GetAllTransactionsOptions) {
+  const query: Record<string, any> = {
+    timestamp: {
+      $gte: options.dateRange.from.getTime(),
+      $lte: options.dateRange.to.getTime(),
+    },
+  };
+  if (options.accounts) {
+    query.accountId = {
+      $in: options.accounts,
+    };
+  }
+  if (options.categories) {
+    query.category = {
+      $in: options.categories,
+    };
+  }
+
+  return query;
 }

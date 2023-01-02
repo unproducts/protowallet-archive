@@ -1,7 +1,7 @@
 import loki from 'lokijs';
 
 import { Account, Transaction, Label, RecurringTransaction } from '../lookups';
-import { ApplicationDB } from './types';
+import { ApplicationFeed } from './types';
 
 const db = new loki('application.db');
 
@@ -21,11 +21,11 @@ const labelsCollection = db.addCollection<Label>('labels', {
   unique: ['id', 'accent'],
 });
 
-const database: ApplicationDB = {
+const feed: ApplicationFeed = {
   accounts: accountsCollection,
   transactions: transactionsCollection,
   labels: labelsCollection,
   recurringTransactions: recurringTransactionsCollection,
 };
 
-export default database;
+export default feed;
