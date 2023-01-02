@@ -147,7 +147,7 @@ function TransactionsTable({
                   </div>
                 </th>
                 <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                  <div className="font-semibold text-left">Counterparty</div>
+                  <div className="font-semibold text-left">Title</div>
                 </th>
                 <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                   <div className="font-semibold text-left">Payment Date</div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function AccordionBasic(props) {
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(props.show);
 
   return (
     <div className="px-5 py-4 rounded-sm border border-slate-200">
