@@ -110,18 +110,18 @@ function flattenRecurringTransaction(recurringTransaction: RecurringTransaction,
 function prepareQueryFromOptions(options: GetAllTransactionsOptions) {
   const query: Record<string, any> = {
     timestamp: {
-      $gte: options.dateRange.from.getTime(),
-      $lte: options.dateRange.to.getTime(),
+      "$gte": options.dateRange.from.getTime(),
+      "$lte": options.dateRange.to.getTime(),
     },
   };
   if (options.accounts) {
     query.accountId = {
-      $in: options.accounts,
+      "$in": options.accounts,
     };
   }
   if (options.categories) {
     query.category = {
-      $in: options.categories,
+      "$in": options.categories,
     };
   }
 

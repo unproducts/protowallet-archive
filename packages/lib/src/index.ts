@@ -1,12 +1,9 @@
-import * as accounts from 'src/assets/accounts';
-import * as transactions from 'src/assets/transactions';
-import * as labels from 'src/assets/labels';
-import * as feeds from 'src/feeds';
+import * as accounts from './assets/accounts';
+import * as transactions from './assets/transactions';
+import * as labels from './assets/labels';
+import * as feeds from './feeds';
 
-import Calculator from 'src/calculator';
-
-console.log("HHHERREE")
-console.log(accounts);
+import Calculator from './calculator';
 
 const assets = {
     accounts,

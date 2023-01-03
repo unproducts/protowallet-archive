@@ -1,5 +1,20 @@
 import feed from '../feeds';
 import { Label } from '../lookups';
+import { generateRandomColor, generateRandomStringOfLength } from '../utils';
+
+export type CreateLabelOptions = {
+    value: string;
+    accent?: string;
+}
+
+export async function createLabel(options: CreateLabelOptions): Promise<Label> {
+    const label: Label = {
+        id: generateRandomStringOfLength(3),
+        value: options.value,
+        accent: options.accent || generateRandomColor()
+    }
+    return feed.labels.insert(label);
+}
 
 export async function getLabels(query: string[]): Promise<Record<string, Label>> {
     const labels: Label[] = feed.labels.find({

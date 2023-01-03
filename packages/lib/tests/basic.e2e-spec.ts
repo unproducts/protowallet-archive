@@ -1,4 +1,4 @@
-// import { assets } from '../src';
+import lib from '../dist';
 // import { Account } from '../src/lookups';
 // import { Category, RecordDirection, RecordType } from '../src/lookups/enums';
 
@@ -12,8 +12,9 @@
 
 // import app from "../src"
 
-it('should return ok', () => {
-  console.log("OK")
+it('should return ok', async () => {
+  const totalAccount = await lib.assets.accounts.getTotalAccounts();
+  expect(totalAccount).toBe(0);
 })
 
 // describe('Basic Operations', () => {

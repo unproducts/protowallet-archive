@@ -3,7 +3,7 @@ import { Amount, Label, Range, Transaction } from './lookups';
 import { Category, Currency, RecordDirection, RecordType } from './lookups/enums';
 import { getAllTransactions } from './assets/transactions';
 
-export default class Calculator {
+export class Calculator {
   private dateRange: Range<Date>;
 
   constructor(dateRange: Range<Date>) {
