@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import Sidebar from '../../partials/wallet/Sidebar';
 import Header from '../../partials/Header';
+import NewAccountModal from '../../partials/wallet/NewAccountModal';
 
 function Accounts() {
-
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -14,61 +14,26 @@ function Accounts() {
 
       {/* Content area */}
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden bg-white">
-
         {/*  Site header */}
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
         <main>
-
           <div className="lg:relative lg:flex">
-
             {/* Content */}
             <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-
               {/* Page header */}
               <div className="sm:flex sm:justify-between sm:items-center mb-5">
-
                 {/* Left: Title */}
                 <div className="mb-4 sm:mb-0">
                   <h1 className="text-2xl md:text-3xl text-slate-800 font-bold">Accounts ✨</h1>
                 </div>
 
                 {/* Add card button */}
-                <button className="btn bg-indigo-500 hover:bg-indigo-600 text-white">
-                  <svg className="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
-                    <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
-                  </svg>
-                  <span className="hidden xs:block ml-2">Add Account</span>
-                </button>
-              </div>
-
-              {/* Filters */}
-              <div className="mb-5">
-                <ul className="flex flex-wrap -m-1 items-center">
-                  <li className="m-1 italic text-sm">
-                    Sort By
-                  </li>
-                  <li className="m-1">
-                    <button className="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-transparent shadow-sm bg-indigo-500 text-white duration-150 ease-in-out">
-                      A - Z
-                    </button>
-                  </li>
-                  <li className="m-1">
-                    <button className="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-slate-200 hover:border-slate-300 shadow-sm bg-white text-slate-500 duration-150 ease-in-out">
-                      Balance (Lowest First)
-                    </button>
-                  </li>
-                  <li className="m-1">
-                    <button className="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-slate-200 hover:border-slate-300 shadow-sm bg-white text-slate-500 duration-150 ease-in-out">
-                      Balance (Highest First)
-                    </button>
-                  </li>
-                </ul>
+                <NewAccountModal />
               </div>
 
               {/* Credit cards */}
               <div className="space-y-2">
-
                 {/* Card 1 */}
                 <label className="relative block cursor-pointer text-left w-full">
                   <input type="radio" name="radio-buttons" className="peer sr-only" defaultChecked />
@@ -174,9 +139,7 @@ function Accounts() {
                     aria-hidden="true"
                   />
                 </label>
-
               </div>
-              
             </div>
 
             {/* Sidebar */}
@@ -184,7 +147,6 @@ function Accounts() {
               <div className="lg:sticky lg:top-16 bg-slate-50 lg:overflow-x-hidden lg:overflow-y-auto no-scrollbar lg:shrink-0 border-t lg:border-t-0 lg:border-l border-slate-200 lg:w-[390px] lg:h-[calc(100vh-64px)]">
                 <div className="py-8 px-4 lg:px-8">
                   <div className="max-w-sm mx-auto lg:max-w-none">
-
                     <div className="text-slate-800 font-semibold text-center mb-6">Physical Metal Card Summary</div>
 
                     {/* Credit Card */}
@@ -422,16 +384,12 @@ function Accounts() {
                         </button>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
-
         </main>
-
       </div>
     </div>
   );

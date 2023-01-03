@@ -14,6 +14,9 @@ import AnalyticsCard08 from '../../partials/analytics/AnalyticsCard08';
 import AnalyticsCard09 from '../../partials/analytics/AnalyticsCard09';
 import AnalyticsCard10 from '../../partials/analytics/AnalyticsCard10';
 import AnalyticsCard11 from '../../partials/analytics/AnalyticsCard11';
+import DashboardCard09 from '../../partials/dashboard/DashboardCard09';
+import DashboardCard11 from '../../partials/dashboard/DashboardCard11';
+
 
 function Dashboard() {
 
@@ -62,21 +65,21 @@ function Dashboard() {
               {/* Stacked bar chart (Acquisition Channels) */}
               <AnalyticsCard03 />
               {/* Horizontal bar chart (Audience Overview) */}
-              <AnalyticsCard04 />
+              <DashboardCard09 />
               {/* Report card (Top Channels) */}
               <AnalyticsCard05 />
               {/* Report card (Top Pages) */}
               <AnalyticsCard06 />
-              {/* Report card (Top Countries) */}
-              <AnalyticsCard07 />
+              {/* Report card (Top Countries)
+              <AnalyticsCard07 /> */}
               {/* Doughnut chart (Sessions By Device) */}
               <AnalyticsCard08 />
               {/* Doughnut chart (Visit By Age Category) */}
               <AnalyticsCard09 />
-              {/* Polar chart (Sessions By Gender) */}
-              <AnalyticsCard10 />
+              {/* Polar chart (Sessions By Gender)
+              <AnalyticsCard10 /> */}
               {/* Table (Top Products) */}
-              <AnalyticsCard11 />
+              <DashboardCard11 />
 
             </div>
 

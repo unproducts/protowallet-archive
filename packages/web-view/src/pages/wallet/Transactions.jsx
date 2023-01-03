@@ -8,7 +8,7 @@ import PaginationNumeric from '../../components/PaginationNumeric';
 import TransactionsTable from '../../partials/finance/TransactionsTable';
 import TransactionsFilterBar from '../../partials/wallet/TransactionsFilterBar';
 import TransactionsTable02 from '../../partials/finance/TransactionsTable02';
-import NewTransaction from '../../partials/wallet/NewTransaction';
+import NewTransaction from '../../partials/wallet/NewTransactionModal';
 
 function Transactions() {
   const [sidebarOpen, setSidebarOpen] = useState(false);

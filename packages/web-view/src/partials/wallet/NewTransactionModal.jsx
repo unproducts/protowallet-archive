@@ -2,7 +2,7 @@ import ModalBasic from '../../components/ModalBasic';
 import { useState } from 'react';
 import NewTransactionForm from './NewTransactionForm';
 
-export default function NewTransaction() {
+export default function NewTransactionModal() {
   const [feedbackModalOpen, setFeedbackModalOpen] = useState(false);
 
   return (

@@ -44,7 +44,7 @@ function AnalyticsCard02() {
   return (
     <div className="flex flex-col col-span-full xl:col-span-4 bg-white shadow-lg rounded-sm border border-slate-200">
       <header className="px-5 py-4 border-b border-slate-100">
-        <h2 className="font-semibold text-slate-800">Active Users Right Now</h2>
+        <h2 className="font-semibold text-slate-800">Cashflow</h2>
       </header>
       {/* Card content */}
       <div className="flex flex-col h-full">
@@ -58,7 +58,7 @@ function AnalyticsCard02() {
             {/* Vistors number */}
             <div>
               <div className="text-3xl font-bold text-slate-800 mr-2">347</div>
-              <div className="text-sm text-slate-500">Live visitors</div>
+              <div className="text-sm text-slate-500">Last 30 days</div>
             </div>
           </div>
         </div>
@@ -77,10 +77,10 @@ function AnalyticsCard02() {
               <thead className="text-xs uppercase text-slate-400">
                 <tr>
                   <th className="py-2">
-                    <div className="font-semibold text-left">Top pages</div>
+                    <div className="font-semibold text-left">Highest Transactions</div>
                   </th>
                   <th className="py-2">
-                    <div className="font-semibold text-right">Active users</div>
+                    <div className="font-semibold text-right">Amount</div>
                   </th>
                 </tr>
               </thead>
@@ -89,7 +89,7 @@ function AnalyticsCard02() {
                 {/* Row */}
                 <tr>
                   <td className="py-2">
-                    <div className="text-left">preview.cruip.com/open-pro/</div>
+                    <div className="text-left">Food</div>
                   </td>
                   <td className="py-2">
                     <div className="font-medium text-right text-slate-800">94</div>
@@ -98,7 +98,7 @@ function AnalyticsCard02() {
                 {/* Row */}
                 <tr>
                   <td className="py-2">
-                    <div className="text-left">preview.cruip.com/simple/</div>
+                    <div className="text-left">Housing</div>
                   </td>
                   <td className="py-2">
                     <div className="font-medium text-right text-slate-800">42</div>
@@ -107,7 +107,7 @@ function AnalyticsCard02() {
                 {/* Row */}
                 <tr>
                   <td className="py-2">
-                    <div className="text-left">cruip.com/unlimited/</div>
+                    <div className="text-left">Investment</div>
                   </td>
                   <td className="py-2">
                     <div className="font-medium text-right text-slate-800">12</div>
@@ -116,7 +116,7 @@ function AnalyticsCard02() {
                 {/* Row */}
                 <tr>
                   <td className="py-2">
-                    <div className="text-left">preview.cruip.com/twist/</div>
+                    <div className="text-left">Transfer</div>
                   </td>
                   <td className="py-2">
                     <div className="font-medium text-right text-slate-800">4</div>
