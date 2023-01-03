@@ -1,9 +1,9 @@
 import later, { ScheduleData } from 'later';
-import feed from 'src/feeds';
-import { Label, Range, RecurringTransaction, Transaction } from 'src/lookups';
-import { Category, EndRecurrenceBy, RecordType } from 'src/lookups/enums';
-import { generateRandomStringOfLength } from 'src/utils';
-import { assertAccountExists } from 'src/assets/accounts';
+import feed from '../feeds';
+import { Label, Range, RecurringTransaction, Transaction } from '../lookups';
+import { Category, EndRecurrenceBy, RecordType } from '../lookups/enums';
+import { generateRandomStringOfLength } from '../utils';
+import { assertAccountExists } from './accounts';
 
 export type GetAllTransactionsOptions = {
   dateRange: Range<Date>;
@@ -18,7 +18,7 @@ export type CreateTransactionOptions = Omit<Transaction, "id">;
 
 export async function createTransaction(options: CreateTransactionOptions): Promise<Transaction> {
   await assertAccountExists(options.accountId);
-  return this.feed.transactions.insert({
+  return feed.transactions.insert({
     id: generateRandomStringOfLength(10),
     accountId: options.accountId,
     type: options.type,

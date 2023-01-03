@@ -1,5 +1,5 @@
-import feed from 'src/feeds';
-import { Account } from 'src/lookups';
+import feed from '../feeds';
+import { Account } from '../lookups';
 import { generateRandomColor, generateRandomStringOfLength } from '../utils';
 
 export async function getAccount(accountId: string): Promise<Account | null> {

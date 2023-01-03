@@ -1,5 +1,5 @@
-import feed from 'src/feeds';
-import { Label } from 'src/lookups';
+import feed from '../feeds';
+import { Label } from '../lookups';
 
 export async function getLabels(query: string[]): Promise<Record<string, Label>> {
     const labels: Label[] = feed.labels.find({

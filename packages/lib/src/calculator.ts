@@ -1,7 +1,7 @@
-import { getAllLabels } from 'src/assets/labels';
-import { Amount, Label, Range, Transaction } from 'src/lookups';
-import { Category, Currency, RecordDirection, RecordType } from 'src/lookups/enums';
-import { getAllTransactions } from 'src/assets/transactions';
+import { getAllLabels } from './assets/labels';
+import { Amount, Label, Range, Transaction } from './lookups';
+import { Category, Currency, RecordDirection, RecordType } from './lookups/enums';
+import { getAllTransactions } from './assets/transactions';
 
 export default class Calculator {
   private dateRange: Range<Date>;

@@ -1,5 +1,4 @@
 import { Category, Currency, EndRecurrenceBy, RecordDirection, RecordType } from './enums';
-import later from 'later';
 
 export type Account = {
   id: string;
