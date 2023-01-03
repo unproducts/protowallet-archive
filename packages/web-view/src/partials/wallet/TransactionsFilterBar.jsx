@@ -3,9 +3,23 @@ import AccordionBasic from '../../components/AccordionBasic';
 import Datepicker from '../../components/Datepicker';
 import DateSelect from '../../components/DateSelect';
 import CheckboxList from './CheckboxList';
+import MinMaxAmountInput from './MinMaxAmountInput';
 
-function TransactionsFilterBar() {
+/* TO DO 
+    Add date range creation logic based on last week, month, year selection
+    add date extration logic from date picker
+*/
+
+function TransactionsFilterBar({ accounts, categories, label }) {
   const [dateSelectType, setDateSelectType] = useState('');
+  const [selectedAccounts, setSelectedAccounts] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedLabels, setSelectedLabels] = useState([]);
+  const [selectedRecordType, setSelectedRecordType] = useState([]);
+  const [selectedMinAmmount, setSelectedMinAmmount] = useState();
+  const [selectedMaxAmmount, setSelectedMaxAmmount] = useState();
+  const [selectedStartDate, setSelectedStartDate] = useState();
+  const [selectedEndDate, setSelectedEndDate] = useState();
 
   const amountMinMax = (
     <div>
@@ -27,40 +41,65 @@ function TransactionsFilterBar() {
         <div className="grid md:grid-cols-2 xl:grid-cols-1 gap-6">
           {/* Accounts */}
           <div>
-            {/* <div className="text-sm text-slate-800 font-semibold mb-3">Accounts</div> */}
             <AccordionBasic
-              children={<CheckboxList checks={['All Accounts', 'Cash', 'Axis']}></CheckboxList>}
+              children={
+                <CheckboxList
+                  filterOptions={['Cash', 'Axis']}
+                  selectedFilters={selectedAccounts}
+                  setSelectedFilters={setSelectedAccounts}
+                ></CheckboxList>
+              }
               title={'Accounts'}
               show={true}
             ></AccordionBasic>
           </div>
           {/* Categories */}
           <div>
-            {/* <div className="text-sm text-slate-800 font-semibold mb-3">Accounts</div> */}
             <AccordionBasic
-              children={<CheckboxList checks={['All Categories', 'Food', 'Transport']}></CheckboxList>}
+              children={
+                <CheckboxList
+                  filterOptions={['Food', 'Transport']}
+                  selectedFilters={selectedCategories}
+                  setSelectedFilters={setSelectedCategories}
+                ></CheckboxList>
+              }
               title={'Categories'}
               show={true}
             ></AccordionBasic>
           </div>
           {/* Labels */}
           <div>
-            {/* <div className="text-sm text-slate-800 font-semibold mb-3">Accounts</div> */}
             <AccordionBasic
-              children={<CheckboxList checks={['All Labels', 'useless', 'impulse']}></CheckboxList>}
+              children={
+                <CheckboxList
+                  filterOptions={['useless', 'impulse']}
+                  selectedFilters={selectedLabels}
+                  setSelectedFilters={setSelectedLabels}
+                ></CheckboxList>
+              }
               title={'Labels'}
               show={true}
             ></AccordionBasic>
           </div>
           {/* Record Type */}
           <AccordionBasic
-            children={<CheckboxList checks={['All Records ', 'Expense', 'Income', 'Transfer']}></CheckboxList>}
+            children={
+              <CheckboxList
+                filterOptions={['Expense', 'Income', 'Transfer']}
+                selectedFilters={selectedRecordType}
+                setSelectedFilters={setSelectedRecordType}
+              ></CheckboxList>
+            }
             title={'Record Type'}
             show={true}
           ></AccordionBasic>
-          {/* Amount 2 */}
+          {/* Amount */}
           <div>
-            <AccordionBasic title={'Amount'} children={amountMinMax} show={true}></AccordionBasic>
+            <AccordionBasic
+              title={'Amount'}
+              children={<MinMaxAmountInput setSelectedMinAmmount={setSelectedMinAmmount} setSelectedMaxAmmount={setSelectedMaxAmmount} />}
+              show={true}
+            ></AccordionBasic>
           </div>
           {/* Date*/}
           <div>

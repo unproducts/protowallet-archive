@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import DatePicker from 'react-flatpickr';
+import DatePickerSingle from '../../components/DatePickerSingle';
 import CreatableSelect from 'react-select/creatable';
 
 export default function NewTransaction() {
+  /* TO DO 
+    update date picker view to accomadate time as well
+  */
   const [accountOptions, setAccountOptions] = useState([
     {
       value: 'test-label',
@@ -134,11 +137,7 @@ export default function NewTransaction() {
           <label className="block text-sm font-medium mb-1" htmlFor="name">
             Transaction Date <span className="text-rose-500">*</span>
           </label>
-          <DatePicker
-            onChange={(e) => {
-              setTransactionDate(e);
-            }}
-          ></DatePicker>
+          <DatePickerSingle setSelectedDate={setTransactionDate} />
         </div>
       </div>
     </div>
