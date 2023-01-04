@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AccordionBasic from '../../components/AccordionBasic';
 import Datepicker from '../../components/Datepicker';
 import DateSelect from '../../components/DateSelect';
@@ -6,12 +6,11 @@ import CheckboxList from './CheckboxList';
 import MinMaxAmountInput from './MinMaxAmountInput';
 
 /* TO DO 
-    Add date range creation logic based on last week, month, year selection
-    add date extration logic from date picker
+    Refactoring
 */
 
 function TransactionsFilterBar({ accounts, categories, label }) {
-  const [dateSelectType, setDateSelectType] = useState('');
+  const [dateSelectedType, setDateSelectedType] = useState('');
   const [selectedAccounts, setSelectedAccounts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedLabels, setSelectedLabels] = useState([]);
@@ -21,18 +20,39 @@ function TransactionsFilterBar({ accounts, categories, label }) {
   const [selectedStartDate, setSelectedStartDate] = useState();
   const [selectedEndDate, setSelectedEndDate] = useState();
 
-  const amountMinMax = (
-    <div>
-      <label className="block text-sm font-medium mb-1" htmlFor="placeholder">
-        Min
-      </label>
-      <input id="placeholder" className="form-input w-full" type="text" placeholder="" />
-      <label className="block text-sm font-medium mb-1" htmlFor="placeholder">
-        Max
-      </label>
-      <input id="placeholder" className="form-input w-full" type="text" placeholder="" />
-    </div>
-  );
+  // console.log("Start Date: ", selectedStartDate);
+  // console.log("End Date: ", selectedEndDate);
+
+  useEffect(() => {
+    switch (dateSelectedType) {
+      case 'Today':
+        setSelectedStartDate(new Date());
+        setSelectedEndDate(new Date());
+        break;
+      case 'Last 7 Days':
+        setSelectedStartDate(new Date(new Date().getTime() - (6 * 24 * 60 * 60 * 1000)));
+        setSelectedEndDate(new Date());
+        break;
+      case 'Last Month':
+        setSelectedStartDate(new Date(new Date().getTime() - (30 * 24 * 60 * 60 * 1000)));
+        setSelectedEndDate(new Date());
+        break;
+      case 'Last 12 Months':
+        setSelectedStartDate(new Date(new Date().getTime() - (365 * 24 * 60 * 60 * 1000)));
+        setSelectedEndDate(new Date());
+        break;
+      case 'All Time':
+        setSelectedStartDate();
+        setSelectedEndDate();
+        break;
+      case 'Custom':
+        break;
+      default:
+        setSelectedStartDate();
+        setSelectedEndDate();
+        break;
+    }
+  }, [dateSelectedType]);
 
   return (
     <div className="space-y-8">
@@ -104,12 +124,12 @@ function TransactionsFilterBar({ accounts, categories, label }) {
           {/* Date*/}
           <div>
             <div className="text-sm text-slate-800 font-medium">Date</div>
-            <DateSelect onChange={setDateSelectType}></DateSelect>
+            <DateSelect onChange={setDateSelectedType}></DateSelect>
             <br />
-            {dateSelectType === 'Custom' ? (
+            {dateSelectedType === 'Custom' ? (
               <div>
                 <div className="text-sm text-slate-800 font-medium">Custom Date</div>
-                <Datepicker></Datepicker>
+                <Datepicker setSelectedStartDate={setSelectedStartDate} setSelectedEndDate={setSelectedEndDate}></Datepicker>
               </div>
             ) : null}
           </div>

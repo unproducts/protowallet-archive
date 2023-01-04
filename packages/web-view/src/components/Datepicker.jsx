@@ -1,10 +1,7 @@
 import React from 'react';
 import Flatpickr from 'react-flatpickr';
 
-function Datepicker({
-  align
-}) {
-
+function Datepicker({ align, setSelectedStartDate, setSelectedEndDate }) {
   const options = {
     mode: 'range',
     static: true,
@@ -15,13 +12,15 @@ function Datepicker({
     nextArrow: '<svg class="fill-current" width="7" height="11" viewBox="0 0 7 11"><path d="M1.4 10.8L0 9.4l4-4-4-4L1.4 0l5.4 5.4z" /></svg>',
     onReady: (selectedDates, dateStr, instance) => {
       instance.element.value = dateStr.replace('to', '-');
-      const customClass = (align) ? align : '';
+      const customClass = align ? align : '';
       instance.calendarContainer.classList.add(`flatpickr-${customClass}`);
     },
     onChange: (selectedDates, dateStr, instance) => {
       instance.element.value = dateStr.replace('to', '-');
+      setSelectedStartDate(selectedDates[0]);
+      setSelectedEndDate(selectedDates[1]);
     },
-  }
+  };
 
   return (
     <div className="relative">

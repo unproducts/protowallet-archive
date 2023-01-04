@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DatePickerSingle from '../../components/DatePickerSingle';
 import CreatableSelect from 'react-select/creatable';
+import Select from 'react-select';
 
 export default function NewTransaction() {
   /* TO DO 
-    update date picker view to accomadate time as well
+    [UI] update date picker view to accomadate time as well
+    Refactoring
   */
   const [accountOptions, setAccountOptions] = useState([
     {
@@ -24,11 +26,15 @@ export default function NewTransaction() {
       label: 'Test',
     },
   ]);
-  const [recordType, setRecordType] = useState('Expense');
-  const [selectedCategory, setSelectedCategory] = useState([]);
+
+  // To load the accounts , labeld and categories options
+  useEffect(()=>{},[])
+
+  const [selectedRecordType, setSelectedRecordType] = useState('Expense');
+  const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedLabels, setSelectedLabels] = useState([]);
   const [amount, setAmount] = useState([]);
-  const [account, setAccount] = useState([]);
+  const [selectedAccount, setSelectedAccount] = useState([]);
   const [title, setTitle] = useState('');
   const [note, setNote] = useState('');
   const [transactionDate, setTransactionDate] = useState();
@@ -87,28 +93,27 @@ export default function NewTransaction() {
           <div className="flex flex-wrap -space-x-px">
             <button
               className={`btn bg-slate-50 border-slate-200 hover:bg-slate-50 ${
-                recordType === 'Expense' ? 'text-indigo-500' : 'text-slate-600'
+                selectedRecordType === 'Expense' ? 'text-indigo-500' : 'text-slate-600'
               } rounded-none first:rounded-l last:rounded-r`}
-              onClick={() => setRecordType('Expense')}
+              onClick={() => setSelectedRecordType('Expense')}
             >
               Expense
             </button>
             <button
               className={`btn bg-slate-50 border-slate-200 hover:bg-slate-50 ${
-                recordType === 'Income' ? 'text-indigo-500' : 'text-slate-600'
+                selectedRecordType === 'Income' ? 'text-indigo-500' : 'text-slate-600'
               } rounded-none first:rounded-l last:rounded-r`}
               onClick={() => {
-                setRecordType('Income');
-                console.log('testing');
+                setSelectedRecordType('Income');
               }}
             >
               Income
             </button>
             <button
               className={`btn bg-slate-50 border-slate-200 hover:bg-slate-50 ${
-                recordType === 'Transfer' ? 'text-indigo-500' : 'text-slate-600'
+                selectedRecordType === 'Transfer' ? 'text-indigo-500' : 'text-slate-600'
               } rounded-none first:rounded-l last:rounded-r`}
-              onClick={() => setRecordType('Transfer')}
+              onClick={() => setSelectedRecordType('Transfer')}
             >
               Transfer
             </button>
@@ -119,19 +124,19 @@ export default function NewTransaction() {
           <label className="block text-sm font-medium mb-1" htmlFor="name">
             Account <span className="text-rose-500">*</span>
           </label>
-          <CreatableSelect options={accountOptions} isMulti />
+          <Select options={accountOptions} onChange={(values) => setSelectedAccount(values)} />
         </div>
         <div>
           <label className="block text-sm font-medium mb-1" htmlFor="name">
             Category <span className="text-rose-500">*</span>
           </label>
-          <CreatableSelect options={categoryOptions} isMulti />
+          <Select options={categoryOptions} onChange={(values) => setSelectedCategories(values)}/>
         </div>
         <div>
           <label className="block text-sm font-medium mb-1" htmlFor="name">
             Label <span className="text-rose-500">*</span>
           </label>
-          <CreatableSelect options={labelOptions} isMulti />
+          <CreatableSelect options={labelOptions} isMulti onChange={(values) => setSelectedLabels(values)}/>
         </div>
         <div>
           <label className="block text-sm font-medium mb-1" htmlFor="name">

@@ -17,7 +17,7 @@ function DatepickerSingle({ align, setSelectedDate }) {
       instance.calendarContainer.classList.add(`flatpickr-${customClass}`);
     },
     onClose: (event) => {
-        setSelectedDate(event);
+      setSelectedDate(event);
     },
   };
 
