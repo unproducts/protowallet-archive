@@ -15,7 +15,7 @@ function DashboardCard09() {
     datasets: [
       // Light blue bars
       {
-        label: 'Stack 1',
+        label: 'Income',
         data: [
           6200, 9200, 6600, 8800, 5200, 9200,
         ],
@@ -26,7 +26,7 @@ function DashboardCard09() {
       },
       // Blue bars
       {
-        label: 'Stack 2',
+        label: 'Expense',
         data: [
           -4000, -2600, -5350, -4000, -7500, -2000,
         ],
@@ -41,7 +41,7 @@ function DashboardCard09() {
   return (
     <div className="flex flex-col col-span-full sm:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
       <header className="px-5 py-4 border-b border-slate-100 flex items-center">
-        <h2 className="font-semibold text-slate-800">Sales VS Refunds</h2>
+        <h2 className="font-semibold text-slate-800">Income v/s Expense</h2>
         <Tooltip className="ml-2" size="lg">
           <div className="text-sm">Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</div>
         </Tooltip>

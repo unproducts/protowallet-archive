@@ -1,17 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function DashboardCard11() {
   return (
     <div className="col-span-full xl:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
       <header className="px-5 py-4 border-b border-slate-100">
-        <h2 className="font-semibold text-slate-800">Income/Expenses</h2>
+        <h2 className="font-semibold text-slate-800">Transactions</h2>
       </header>
       <div className="p-3">
-
         {/* Card content */}
         {/* "Today" group */}
         <div>
-          <header className="text-xs uppercase text-slate-400 bg-slate-50 rounded-sm font-semibold p-2">Today</header>
+          <header className="text-xs uppercase text-slate-400 bg-slate-50 rounded-sm font-semibold p-2">Recent</header>
           <ul className="my-1">
             {/* Item */}
             <li className="flex px-2">
@@ -22,7 +22,12 @@ function DashboardCard11() {
               </div>
               <div className="grow flex items-center border-b border-slate-100 text-sm py-2">
                 <div className="grow flex justify-between">
-                  <div className="self-center"><a className="font-medium text-slate-800 hover:text-slate-900" href="#0">Qonto</a> billing</div>
+                  <div className="self-center">
+                    <a className="font-medium text-slate-800 hover:text-slate-900" href="#0">
+                      Qonto
+                    </a>{' '}
+                    billing
+                  </div>
                   <div className="shrink-0 self-start ml-2">
                     <span className="font-medium text-slate-800">-$49.88</span>
                   </div>
@@ -38,7 +43,12 @@ function DashboardCard11() {
               </div>
               <div className="grow flex items-center border-b border-slate-100 text-sm py-2">
                 <div className="grow flex justify-between">
-                  <div className="self-center"><a className="font-medium text-slate-800 hover:text-slate-900" href="#0">Cruip.com</a> Market Ltd 70 Wilson St London</div>
+                  <div className="self-center">
+                    <a className="font-medium text-slate-800 hover:text-slate-900" href="#0">
+                      Cruip.com
+                    </a>{' '}
+                    Market Ltd 70 Wilson St London
+                  </div>
                   <div className="shrink-0 self-start ml-2">
                     <span className="font-medium text-emerald-500">+249.88</span>
                   </div>
@@ -54,7 +64,11 @@ function DashboardCard11() {
               </div>
               <div className="grow flex items-center border-b border-slate-100 text-sm py-2">
                 <div className="grow flex justify-between">
-                  <div className="self-center"><a className="font-medium text-slate-800 hover:text-slate-900" href="#0">Notion Labs Inc</a></div>
+                  <div className="self-center">
+                    <a className="font-medium text-slate-800 hover:text-slate-900" href="#0">
+                      Notion Labs Inc
+                    </a>
+                  </div>
                   <div className="shrink-0 self-start ml-2">
                     <span className="font-medium text-emerald-500">+99.99</span>
                   </div>
@@ -70,7 +84,11 @@ function DashboardCard11() {
               </div>
               <div className="grow flex items-center border-b border-slate-100 text-sm py-2">
                 <div className="grow flex justify-between">
-                  <div className="self-center"><a className="font-medium text-slate-800 hover:text-slate-900" href="#0">Market Cap Ltd</a></div>
+                  <div className="self-center">
+                    <a className="font-medium text-slate-800 hover:text-slate-900" href="#0">
+                      Market Cap Ltd
+                    </a>
+                  </div>
                   <div className="shrink-0 self-start ml-2">
                     <span className="font-medium text-emerald-500">+1,200.88</span>
                   </div>
@@ -86,7 +104,12 @@ function DashboardCard11() {
               </div>
               <div className="grow flex items-center border-b border-slate-100 text-sm py-2">
                 <div className="grow flex justify-between">
-                  <div className="self-center"><a className="font-medium text-slate-800 hover:text-slate-900" href="#0">App.com</a> Market Ltd 70 Wilson St London</div>
+                  <div className="self-center">
+                    <a className="font-medium text-slate-800 hover:text-slate-900" href="#0">
+                      App.com
+                    </a>{' '}
+                    Market Ltd 70 Wilson St London
+                  </div>
                   <div className="shrink-0 self-start ml-2">
                     <span className="font-medium text-slate-800 line-through">+$99.99</span>
                   </div>
@@ -102,7 +125,12 @@ function DashboardCard11() {
               </div>
               <div className="grow flex items-center text-sm py-2">
                 <div className="grow flex justify-between">
-                  <div className="self-center"><a className="font-medium text-slate-800 hover:text-slate-900" href="#0">App.com</a> Market Ltd 70 Wilson St London</div>
+                  <div className="self-center">
+                    <a className="font-medium text-slate-800 hover:text-slate-900" href="#0">
+                      App.com
+                    </a>{' '}
+                    Market Ltd 70 Wilson St London
+                  </div>
                   <div className="shrink-0 self-start ml-2">
                     <span className="font-medium text-slate-800">-$49.88</span>
                   </div>
@@ -111,7 +139,11 @@ function DashboardCard11() {
             </li>
           </ul>
         </div>
-
+      </div>
+      <div className="text-center pt-4 pb-5 border-t border-slate-100">
+        <Link className="text-sm font-medium text-indigo-500 hover:text-indigo-600" to="#0">
+          All Transaction -&gt;
+        </Link>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ function AnalyticsCard03() {
     datasets: [
       // Stack
       {
-        label: 'Direct',
+        label: 'Expense',
         data: [
           5000, 4000, 4000, 3800, 5200, 5100,
         ],
@@ -25,7 +25,7 @@ function AnalyticsCard03() {
       },
       // Stack
       {
-        label: 'Referral',
+        label: 'Investment',
         data: [
           2500, 2600, 4000, 4000, 4800, 3500,
         ],
@@ -36,23 +36,12 @@ function AnalyticsCard03() {
       },
       // Stack
       {
-        label: 'Organic Search',
+        label: 'Savings',
         data: [
           2300, 2000, 3100, 2700, 1300, 2600,
         ],
         backgroundColor: tailwindConfig().theme.colors.indigo[300],
         hoverBackgroundColor: tailwindConfig().theme.colors.indigo[400],
-        barPercentage: 0.66,
-        categoryPercentage: 0.66,
-      },
-      // Stack
-      {
-        label: 'Social',
-        data: [
-          4800, 4200, 4800, 1800, 3300, 3500,
-        ],
-        backgroundColor: tailwindConfig().theme.colors.indigo[100],
-        hoverBackgroundColor: tailwindConfig().theme.colors.indigo[200],
         barPercentage: 0.66,
         categoryPercentage: 0.66,
       },
@@ -62,7 +51,7 @@ function AnalyticsCard03() {
   return (
     <div className="flex flex-col col-span-full sm:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
       <header className="px-5 py-4 border-b border-slate-100 flex items-center">
-        <h2 className="font-semibold text-slate-800">Acquisition Channels</h2>
+        <h2 className="font-semibold text-slate-800">Cashflow Channels</h2>
       </header>
       {/* Chart built with Chart.js 3 */}
       {/* Change the height attribute to adjust the chart height */}
