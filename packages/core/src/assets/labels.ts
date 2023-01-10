@@ -30,6 +30,10 @@ export async function getAllLabels(): Promise<Record<string, Label>> {
     return recordifyLabelData(labels);
 }
 
+export async function getAllLabels_Flat(): Promise<Label[]> {
+    return feed.labels.find();
+}
+
 function recordifyLabelData(labels: Label[]): Record<string, Label> {
     const labelsRecord: Record<string, Label> = {}
     for (let index = 0; index < labels.length; index++) {

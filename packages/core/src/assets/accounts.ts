@@ -8,6 +8,10 @@ export async function getAccount(accountId: string): Promise<Account | null> {
   });
 }
 
+export async function getAllAccounts(): Promise<Account[]> {
+  return feed.accounts.find();
+}
+
 export async function createAccount(options: CreateAccountOptions): Promise<Account> {
   const totalAccounts = await getTotalAccounts();
   const account: Account = {
