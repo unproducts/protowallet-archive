@@ -1,4 +1,4 @@
-import { Category, Currency, EndRecurrenceBy, RecordDirection, RecordType } from './enums';
+import { Currency, EndRecurrenceBy, RecordDirection, RecordType } from './enums';
 
 export type Account = {
   id: string;
@@ -11,7 +11,7 @@ export type Transaction = {
   id: string;
   accountId: string;
   type: RecordType;
-  category: Category;
+  category: number;
   amount: number;
   direction: RecordDirection;
   note?: string;
@@ -25,7 +25,7 @@ export type RecurringTransaction = {
   id: string;
   accountId: string;
   type: RecordType;
-  category: Category;
+  category: number;
   amount: number;
   direction: RecordDirection;
   labels?: string[];
@@ -47,6 +47,14 @@ export type Amount = {
   value: number;
   currency: Currency;
 };
+
+export type Category = {
+  id: number;
+  parent: number;
+  logoId?: string;
+  title: string;
+  description?: string;
+}
 
 export type Range<T> = {
   from: T;
