@@ -5,23 +5,60 @@ import DateSelect from '../../components/DateSelect';
 import CheckboxList from './CheckboxList';
 import MinMaxAmountInput from './MinMaxAmountInput';
 
-/* TO DO 
-    Refactoring
-*/
+import { enums, lookups, transactions } from '@wallet/core';
 
-function TransactionsFilterBar({ accounts, categories, label }) {
-  const [dateSelectedType, setDateSelectedType] = useState('');
-  const [selectedAccounts, setSelectedAccounts] = useState([]);
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [selectedLabels, setSelectedLabels] = useState([]);
-  const [selectedRecordType, setSelectedRecordType] = useState([]);
-  const [selectedMinAmmount, setSelectedMinAmmount] = useState();
-  const [selectedMaxAmmount, setSelectedMaxAmmount] = useState();
-  const [selectedStartDate, setSelectedStartDate] = useState();
-  const [selectedEndDate, setSelectedEndDate] = useState();
+export type DateSelectedType = 'Today' | 'Last 7 Days' | 'Last Month' | 'Last 12 Months' | 'All Time' | 'Custom';
 
-  // console.log("Start Date: ", selectedStartDate);
-  // console.log("End Date: ", selectedEndDate);
+export type TransactionsFilterBarOptions = {
+  accounts: lookups.Account[];
+  categories: enums.Category[];
+  label: lookups.Label[];
+  setFilterQuery: (q: transactions.GetAllTransactionsOptions) => void;
+}
+
+function TransactionsFilterBar(options: TransactionsFilterBarOptions) {
+  const [dateSelectedType, setDateSelectedType] = useState<DateSelectedType>('Last 7 Days');
+  const [selectedAccounts, setSelectedAccounts] = useState<lookups.Account[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<enums.Category[]>([]);
+  const [selectedLabels, setSelectedLabels] = useState<lookups.Label[]>([]);
+  const [selectedRecordType, setSelectedRecordType] = useState<enums.RecordType[]>([]);
+  const [selectedMinAmmount, setSelectedMinAmmount] = useState<number>();
+  const [selectedMaxAmmount, setSelectedMaxAmmount] = useState<number>();
+  const [selectedStartDate, setSelectedStartDate] = useState<Date>(new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000));
+  const [selectedEndDate, setSelectedEndDate] = useState<Date>(new Date());
+
+  useEffect(() => {
+    const filterQuery: transactions.GetAllTransactionsOptions = {
+      dateRange: {
+        from: selectedStartDate,
+        to: selectedEndDate,
+      }
+    }
+    if (selectedAccounts?.length) {
+      filterQuery.accounts = selectedAccounts.map(acc => acc.id);
+    }
+    if (selectedCategories?.length) {
+      filterQuery.categories = selectedCategories;
+    }
+    if (selectedLabels?.length) {
+      filterQuery.labels = selectedLabels.map(l => l.id);
+    }
+    if (selectedMaxAmmount || selectedMinAmmount) {
+      filterQuery.amountRange = {};
+      if (selectedMaxAmmount) filterQuery.amountRange.to = selectedMaxAmmount;
+      if (selectedMinAmmount) filterQuery.amountRange.from = selectedMinAmmount;
+    }
+    options.setFilterQuery(filterQuery);
+  }, [
+    selectedAccounts,
+    selectedCategories,
+    selectedLabels,
+    selectedRecordType,
+    selectedMinAmmount,
+    selectedMaxAmmount,
+    selectedStartDate,
+    selectedEndDate,
+  ]);
 
   useEffect(() => {
     switch (dateSelectedType) {
@@ -30,26 +67,16 @@ function TransactionsFilterBar({ accounts, categories, label }) {
         setSelectedEndDate(new Date());
         break;
       case 'Last 7 Days':
-        setSelectedStartDate(new Date(new Date().getTime() - (6 * 24 * 60 * 60 * 1000)));
+        setSelectedStartDate(new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000));
         setSelectedEndDate(new Date());
         break;
       case 'Last Month':
-        setSelectedStartDate(new Date(new Date().getTime() - (30 * 24 * 60 * 60 * 1000)));
+        setSelectedStartDate(new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000));
         setSelectedEndDate(new Date());
         break;
       case 'Last 12 Months':
-        setSelectedStartDate(new Date(new Date().getTime() - (365 * 24 * 60 * 60 * 1000)));
+        setSelectedStartDate(new Date(new Date().getTime() - 365 * 24 * 60 * 60 * 1000));
         setSelectedEndDate(new Date());
-        break;
-      case 'All Time':
-        setSelectedStartDate();
-        setSelectedEndDate();
-        break;
-      case 'Custom':
-        break;
-      default:
-        setSelectedStartDate();
-        setSelectedEndDate();
         break;
     }
   }, [dateSelectedType]);
@@ -129,7 +156,7 @@ function TransactionsFilterBar({ accounts, categories, label }) {
             {dateSelectedType === 'Custom' ? (
               <div>
                 <div className="text-sm text-slate-800 font-medium">Custom Date</div>
-                <Datepicker setSelectedStartDate={setSelectedStartDate} setSelectedEndDate={setSelectedEndDate}></Datepicker>
+                <Datepicker align={'middle'} setSelectedStartDate={setSelectedStartDate} setSelectedEndDate={setSelectedEndDate}></Datepicker>
               </div>
             ) : null}
           </div>
