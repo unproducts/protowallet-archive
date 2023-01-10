@@ -9,9 +9,9 @@ export type GetAllTransactionsOptions = {
   dateRange: Range<Date>;
   accounts?: string[];
   categories?: Category[];
-  labels?: Label[];
+  labels?: string[];
   recordTypes?: RecordType[];
-  amountRange?: Range<number>;
+  amountRange?: Partial<Range<number>>;
 };
 
 export type CreateTransactionOptions = Omit<Transaction, "id">;
