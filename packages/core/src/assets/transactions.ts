@@ -1,14 +1,14 @@
 import later, { ScheduleData } from 'later';
 import feed from '../feeds';
-import { Label, Range, RecurringTransaction, Transaction } from '../lookups';
-import { Category, EndRecurrenceBy, RecordType } from '../lookups/enums';
+import { Range, RecurringTransaction, Transaction } from '../lookups';
+import { EndRecurrenceBy, RecordType } from '../lookups/enums';
 import { generateRandomStringOfLength } from '../utils';
 import { assertAccountExists } from './accounts';
 
 export type GetAllTransactionsOptions = {
   dateRange: Range<Date>;
   accounts?: string[];
-  categories?: Category[];
+  categories?: number[];
   labels?: string[];
   recordTypes?: RecordType[];
   amountRange?: Partial<Range<number>>;
@@ -69,7 +69,7 @@ function flattenRecurringTransaction(recurringTransaction: RecurringTransaction,
   let timestamps: Date[];
   if (recurringTransaction.endTokenType == EndRecurrenceBy.Count) {
     const count = recurringTransaction.endToken as number;
-    timestamps = later.schedule(schedule).next(count, generateFrom) as Date[];
+    timestamps = later.schedule(schedule).next(count, recurringTransaction.startDate) as Date[];
   } else if (recurringTransaction.endTokenType == EndRecurrenceBy.EndDate) {
     const endDate: Date = recurringTransaction.endToken as Date;
     timestamps = later.schedule(schedule).next(500, generateFrom, endDate) as Date[];

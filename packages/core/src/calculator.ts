@@ -1,7 +1,8 @@
 import { getAllLabels } from './assets/labels';
-import { Amount, Label, Range, Transaction } from './lookups';
-import { Category, Currency, RecordDirection, RecordType } from './lookups/enums';
+import { Amount, Label, Range, Transaction, Category } from './lookups';
+import { Currency, RecordDirection, RecordType } from './lookups/enums';
 import { getAllTransactions } from './assets/transactions';
+import { getCategory } from './assets/categories';
 
 export class Calculator {
   private dateRange: Range<Date>;
@@ -138,9 +139,10 @@ export class Calculator {
     const categoryWiseGrouping: Map<Category, Transaction[]>  = new Map();
     for (let index = 0; index < transactions.length; index++) {
       const transaction = transactions[index];
-      const exisitingTransactions = categoryWiseGrouping.get(transaction.category) || [];
+      const category = await getCategory(transaction.category);
+      const exisitingTransactions = categoryWiseGrouping.get(category) || [];
       exisitingTransactions.push(transaction);
-      categoryWiseGrouping.set(transaction.category, exisitingTransactions);
+      categoryWiseGrouping.set(category, exisitingTransactions);
     }
     return categoryWiseGrouping;
   }

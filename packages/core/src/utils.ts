@@ -1,5 +1,9 @@
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
+export function generateRandomInteger(): number {
+  return Math.floor(Math.random() * 1000000000);
+}
+
 export function generateRandomStringOfLength(length: number): string {
   let result = '';
   for (let i = 0; i < length; i++) {

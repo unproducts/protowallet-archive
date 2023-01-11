@@ -1,10 +1,3 @@
-export enum Category {
-  Food,
-  Travel,
-  Daily,
-  Other,
-}
-
 export enum Currency {
   INR,
   USD,
