@@ -5,5 +5,5 @@ export type ApplicationFeed = {
   transactions: Collection<Transaction>;
   labels: Collection<Label>;
   recurringTransactions: Collection<RecurringTransaction>;
-  categoriesCollection: Collection<Category>;
+  categories: Collection<Category>;
 };

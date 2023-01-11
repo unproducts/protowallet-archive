@@ -30,7 +30,7 @@ const feed: ApplicationFeed = {
   transactions: transactionsCollection,
   labels: labelsCollection,
   recurringTransactions: recurringTransactionsCollection,
-  categoriesCollection: categoriesCollection,
+  categories: categoriesCollection,
 };
 
 export default feed;
