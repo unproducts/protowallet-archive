@@ -11,15 +11,15 @@ export type DateSelectedType = 'Today' | 'Last 7 Days' | 'Last Month' | 'Last 12
 
 export type TransactionsFilterBarOptions = {
   accounts: lookups.Account[];
-  categories: enums.Category[];
-  label: lookups.Label[];
+  categories: lookups.Category[];
+  labels: lookups.Label[];
   setFilterQuery: (q: transactions.GetAllTransactionsOptions) => void;
-}
+};
 
 function TransactionsFilterBar(options: TransactionsFilterBarOptions) {
   const [dateSelectedType, setDateSelectedType] = useState<DateSelectedType>('Last 7 Days');
   const [selectedAccounts, setSelectedAccounts] = useState<lookups.Account[]>([]);
-  const [selectedCategories, setSelectedCategories] = useState<enums.Category[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<lookups.Category[]>([]);
   const [selectedLabels, setSelectedLabels] = useState<lookups.Label[]>([]);
   const [selectedRecordType, setSelectedRecordType] = useState<enums.RecordType[]>([]);
   const [selectedMinAmmount, setSelectedMinAmmount] = useState<number>();
@@ -32,16 +32,19 @@ function TransactionsFilterBar(options: TransactionsFilterBarOptions) {
       dateRange: {
         from: selectedStartDate,
         to: selectedEndDate,
-      }
-    }
+      },
+    };
     if (selectedAccounts?.length) {
-      filterQuery.accounts = selectedAccounts.map(acc => acc.id);
+      filterQuery.accounts = selectedAccounts.map((acc) => acc.id);
     }
     if (selectedCategories?.length) {
-      filterQuery.categories = selectedCategories;
+      filterQuery.categories = selectedCategories.map((ctg) => ctg.id);
     }
     if (selectedLabels?.length) {
-      filterQuery.labels = selectedLabels.map(l => l.id);
+      filterQuery.labels = selectedLabels.map((l) => l.id);
+    }
+    if (selectedRecordType?.length) {
+      filterQuery.recordTypes = selectedRecordType;
     }
     if (selectedMaxAmmount || selectedMinAmmount) {
       filterQuery.amountRange = {};
@@ -91,9 +94,10 @@ function TransactionsFilterBar(options: TransactionsFilterBarOptions) {
             <AccordionBasic
               children={
                 <CheckboxList
-                  filterOptions={['Cash', 'Axis']}
+                  filterOptions={options.accounts}
                   selectedFilters={selectedAccounts}
                   setSelectedFilters={setSelectedAccounts}
+                  setDisplayValue={(t) => t.name}
                 ></CheckboxList>
               }
               title={'Accounts'}
@@ -105,9 +109,10 @@ function TransactionsFilterBar(options: TransactionsFilterBarOptions) {
             <AccordionBasic
               children={
                 <CheckboxList
-                  filterOptions={['Food', 'Transport']}
+                  filterOptions={options.categories}
                   selectedFilters={selectedCategories}
                   setSelectedFilters={setSelectedCategories}
+                  setDisplayValue={(t) => t.title}
                 ></CheckboxList>
               }
               title={'Categories'}
@@ -119,9 +124,10 @@ function TransactionsFilterBar(options: TransactionsFilterBarOptions) {
             <AccordionBasic
               children={
                 <CheckboxList
-                  filterOptions={['useless', 'impulse']}
+                  filterOptions={options.labels}
                   selectedFilters={selectedLabels}
                   setSelectedFilters={setSelectedLabels}
+                  setDisplayValue={(t) => t.value}
                 ></CheckboxList>
               }
               title={'Labels'}
@@ -132,10 +138,20 @@ function TransactionsFilterBar(options: TransactionsFilterBarOptions) {
           <AccordionBasic
             children={
               <CheckboxList
-                filterOptions={['Expense', 'Income', 'Transfer']}
+                filterOptions={[enums.RecordType.Expense, enums.RecordType.Income, enums.RecordType.Transfer]}
                 selectedFilters={selectedRecordType}
                 setSelectedFilters={setSelectedRecordType}
-              ></CheckboxList>
+                setDisplayValue={(t) => {
+                  switch (t) {
+                    case enums.RecordType.Expense:
+                      return 'Expense';
+                    case enums.RecordType.Income:
+                      return 'Income';
+                    case enums.RecordType.Transfer:
+                      return 'Transfer';
+                  }
+                }}
+              />
             }
             title={'Record Type'}
             show={true}

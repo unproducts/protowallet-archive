@@ -1,22 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Sidebar from '../../partials/wallet/Sidebar';
 import Header from '../../partials/Header';
-import DropdownSort from '../../components/DropdownSort';
-import PaginationNumeric from '../../components/PaginationNumeric';
 
 import TransactionsTable from '../../partials/finance/TransactionsTable';
 import TransactionsFilterBar from '../../partials/wallet/TransactionsFilterBar';
-import TransactionsTable02 from '../../partials/finance/TransactionsTable02';
 import NewTransaction from '../../partials/wallet/NewTransactionModal';
+import { accounts, lookups, transactions, labels, enums, categories } from '@wallet/core';
 
 function Transactions() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [selectedItems, setSelectedItems] = useState([]);
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const [txs, setTxs] = useState<lookups.Transaction[]>([]);
+  const [query, setQuery] = useState<transactions.GetAllTransactionsOptions>();
+  
+  const [accnts, setAccnts] = useState<lookups.Account[]>([]);
+  const [lbls, setLbls] = useState<lookups.Label[]>([]);
+  const [ctgrs, setCtgrs] = useState<lookups.Category[]>([]);
 
-  const handleSelectedItems = (selectedItems) => {
-    setSelectedItems([...selectedItems]);
-  };
+  accounts.getAllAccounts().then(setAccnts);
+  labels.getAllLabels_Flat().then(setLbls);
+  categories.getAllCategories().then(setCtgrs);
+
+  useEffect(() => {
+    console.log(query)
+    if (query) {
+      transactions.getAllTransactions(query).then(setTxs);
+    } else {
+      setTxs([]);
+    }
+  }, [query]);
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -44,7 +56,7 @@ function Transactions() {
             {/* Page content */}
             <div className="flex flex-col space-y-10 sm:flex-row sm:space-x-6 sm:space-y-0 md:flex-col md:space-x-0 md:space-y-10 xl:flex-row xl:space-x-6 xl:space-y-0 mt-9">
               {/* Sidebar */}
-              <TransactionsFilterBar />
+              <TransactionsFilterBar setFilterQuery={setQuery} accounts={accnts} categories={ctgrs} labels={lbls}  />
 
               {/* Content */}
               <div className="w-full">
@@ -58,7 +70,7 @@ function Transactions() {
                       id="job-search"
                       className="form-input w-full pl-9 focus:border-slate-300"
                       type="search"
-                      placeholder="Search job title or keyword…"
+                      placeholder="Search among transactions…"
                     />
                     <button className="absolute inset-0 right-auto group" type="submit" aria-label="Search">
                       <svg
@@ -75,20 +87,10 @@ function Transactions() {
 
                 {/* Jobs header */}
                 <div className="flex justify-between items-center mb-4">
-                  <div className="text-sm text-slate-500 italic">Showing 289 Jobs</div>
-                  {/* Sort */}
-                  <div className="text-sm">
-                    <span>Sort by </span>
-                    <DropdownSort align="right" />
-                  </div>
+                  <div className="text-sm text-slate-500 italic">Showing {txs.length} Transactions</div>
                 </div>
 
-                <TransactionsTable selectedItems={handleSelectedItems} />
-
-                {/* Pagination */}
-                <div className="mt-6">
-                  <PaginationNumeric />
-                </div>
+                {/* <TransactionsTable setTransactions={setTransactions} /> */}
               </div>
             </div>
           </div>
