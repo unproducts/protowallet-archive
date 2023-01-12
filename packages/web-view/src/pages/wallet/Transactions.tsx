@@ -11,19 +11,23 @@ import { accounts, lookups, transactions, labels, enums, categories } from '@wal
 function Transactions() {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [txs, setTxs] = useState<lookups.Transaction[]>([]);
-  const [query, setQuery] = useState<transactions.GetAllTransactionsOptions>();
+
+  // @ts-ignore
+  const [query, setQuery] = useState<transactions.GetAllTransactionsOptions>({});
   
   const [accnts, setAccnts] = useState<lookups.Account[]>([]);
   const [lbls, setLbls] = useState<lookups.Label[]>([]);
   const [ctgrs, setCtgrs] = useState<lookups.Category[]>([]);
 
-  accounts.getAllAccounts().then(setAccnts);
-  labels.getAllLabels_Flat().then(setLbls);
-  categories.getAllCategories().then(setCtgrs);
+  useEffect(()=>{
+    accounts.getAllAccounts().then(setAccnts);
+    labels.getAllLabels_Flat().then(setLbls);
+    categories.getAllCategories().then(setCtgrs);
+  },[])
+  
 
   useEffect(() => {
-    console.log(query)
-    if (query) {
+    if (query && query.dateRange) {
       transactions.getAllTransactions(query).then(setTxs);
     } else {
       setTxs([]);
