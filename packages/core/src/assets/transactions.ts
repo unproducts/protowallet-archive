@@ -1,4 +1,4 @@
-import later, { ScheduleData } from 'later';
+import later, { ScheduleData } from '@breejs/later';
 import feed from '../feeds';
 import { Range, RecurringTransaction, Transaction } from '../lookups';
 import { EndRecurrenceBy, RecordType } from '../lookups/enums';

@@ -253,6 +253,11 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
+"@breejs/later@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@breejs/later/-/later-4.1.0.tgz#9246907f46cc9e9c9af37d791ab468d98921bcc1"
+  integrity sha512-QgGnZ9b7o4k0Ai1ZbTJWwZpZcFK9d+Gb+DyNt4UT9x6IEIs5HVu0iIlmgzGqN+t9MoJSpSPo9S/Mm51UtHr3JA==
+
 "@emotion/babel-plugin@^11.10.5":
   version "11.10.5"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.10.5.tgz#65fa6e1790ddc9e23cc22658a4c5dea423c55c3c"
@@ -1485,11 +1490,6 @@ jsonfile@^6.0.1:
     universalify "^2.0.0"
   optionalDependencies:
     graceful-fs "^4.1.6"
-
-later@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/later/-/later-1.2.0.tgz#f2cf6c4dd7956dd2f520adf0329836e9876bad0f"
-  integrity sha512-Gi4c6JariwTigfAQLFCyWKKtyY5yzMZOdJdUH9Ori4FqQxQYDREvDRTu5N+jBM7hcnyEDMeYjhmRUTwLIjEMqA==
 
 lilconfig@^2.0.5, lilconfig@^2.0.6:
   version "2.0.6"
