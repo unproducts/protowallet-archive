@@ -162,7 +162,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                   }`}
                 >
                   <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                    Automatic Rules
+                    Recurring Transactions
                   </span>
                 </NavLink>
               </li>
@@ -181,21 +181,10 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 </NavLink>
               </li>
 
-              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname.includes('labels') && 'bg-slate-900'}`}>
-                <NavLink
-                  end
-                  to="/wallet/labels"
-                  className={`block text-slate-200 hover:text-white truncate transition duration-150 ${
-                    pathname.includes('labels') && 'hover:text-slate-200'
-                  }`}
-                >
-                  <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Labels</span>
-                </NavLink>
-              </li>
               <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname.includes('categories') && 'bg-slate-900'}`}>
                 <NavLink
                   end
-                  to="/wallet/categories"
+                  to="/wallet/assets/categories"
                   className={`block text-slate-200 hover:text-white truncate transition duration-150 ${
                     pathname.includes('categories') && 'hover:text-slate-200'
                   }`}
