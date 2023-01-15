@@ -78,6 +78,7 @@ import IconsPage from './pages/component/IconsPage';
 import WalletDashboard from './pages/wallet/Dashboard';
 import WalletTransactions from './pages/wallet/Transactions';
 import WalletAccounts from './pages/wallet/Accounts';
+import WalletCategories from './pages/wallet/categories';
 
 function App() {
 
@@ -97,6 +98,10 @@ function App() {
         <Route path="/wallet/dashboard" element={<WalletDashboard />} />
         <Route path="/wallet/transactions" element={<WalletTransactions />} />
         <Route path="/wallet/accounts" element={<WalletAccounts />} />
+        <Route path="/wallet/assets/categories" element={<WalletCategories />} />
+        <Route path="/wallet/assets/labels" element={<WalletAccounts />} />
+        <Route path="/wallet/assets/templates" element={<WalletAccounts />} />
+        <Route path="/wallet/assets/recurring-transactions" element={<WalletAccounts />} />
 
         <Route path="/dashboard/analytics" element={<Analytics />} />
         <Route path="/dashboard/fintech" element={<Fintech />} />
