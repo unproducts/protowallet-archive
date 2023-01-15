@@ -1,0 +1,14 @@
+{
+  "name": "@wallet/desktop",
+  "version": "1.0.0",
+  "description": "Desktop version of wallet app.",
+  "main": "main.js",
+  "scripts": {
+    "start": "IS_DEV=true electron ."
+  },
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^22.0.1"
+  }
+}
