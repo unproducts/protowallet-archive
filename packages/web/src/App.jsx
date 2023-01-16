@@ -99,9 +99,9 @@ function App() {
         <Route path="/wallet/transactions" element={<WalletTransactions />} />
         <Route path="/wallet/accounts" element={<WalletAccounts />} />
         <Route path="/wallet/assets/categories" element={<WalletCategories />} />
-        <Route path="/wallet/assets/labels" element={<WalletAccounts />} />
-        <Route path="/wallet/assets/templates" element={<WalletAccounts />} />
-        <Route path="/wallet/assets/recurring-transactions" element={<WalletAccounts />} />
+        <Route path="/wallet/assets/labels" element={<WalletCategories />} />
+        <Route path="/wallet/assets/templates" element={<WalletCategories />} />
+        <Route path="/wallet/assets/recurring-transactions" element={<WalletCategories />} />
 
         <Route path="/dashboard/analytics" element={<Analytics />} />
         <Route path="/dashboard/fintech" element={<Fintech />} />
