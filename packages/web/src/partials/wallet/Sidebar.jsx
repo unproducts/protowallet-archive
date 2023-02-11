@@ -153,12 +153,12 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">Your Assets</span>
             </h3>
             <ul className="mt-1">
-              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname.includes('triggers') && 'bg-slate-900'}`}>
+              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname.includes('recurring-transactions') && 'bg-slate-900'}`}>
                 <NavLink
                   end
-                  to="/wallet/triggers"
+                  to="/wallet/assets/recurring-transactions"
                   className={`block text-slate-200 hover:text-white truncate transition duration-150 ${
-                    pathname.includes('triggers') && 'hover:text-slate-200'
+                    pathname.includes('recurring-transactions') && 'hover:text-slate-200'
                   }`}
                 >
                   <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
@@ -170,7 +170,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname.includes('templates') && 'bg-slate-900'}`}>
                 <NavLink
                   end
-                  to="/wallet/templates"
+                  to="/wallet/assets/templates"
                   className={`block text-slate-200 hover:text-white truncate transition duration-150 ${
                     pathname.includes('templates') && 'hover:text-slate-200'
                   }`}
@@ -195,7 +195,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname.includes('labels') && 'bg-slate-900'}`}>
                 <NavLink
                   end
-                  to="/wallet/labels"
+                  to="/wallet/assets/labels"
                   className={`block text-slate-200 hover:text-white truncate transition duration-150 ${
                     pathname.includes('labels') && 'hover:text-slate-200'
                   }`}

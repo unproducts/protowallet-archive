@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "dev": "npm run dev --workspace=@wallet/web-view",
-    "build": "npm run build --workspace=@wallet/web-view",
-    "preview": "npm run preview --workspace=@wallet/web-view"
+    "dev": "npm run dev --workspace=@wallet/web",
+    "build": "npm run build --workspace=@wallet/web",
+    "preview": "npm run preview --workspace=@wallet/web"
   },
   "devDependencies": {
     "@types/later": "^1.2.7",
