@@ -79,6 +79,9 @@ import WalletDashboard from './pages/wallet/Dashboard';
 import WalletTransactions from './pages/wallet/Transactions';
 import WalletAccounts from './pages/wallet/Accounts';
 import WalletCategories from './pages/wallet/categories';
+import WalletLabels from './pages/wallet/labels';
+import WalletRecurringTransactions from './pages/wallet/recurringTransactions';
+import WalletTemplates from './pages/wallet/templates';
 
 function App() {
 
@@ -99,9 +102,9 @@ function App() {
         <Route path="/wallet/transactions" element={<WalletTransactions />} />
         <Route path="/wallet/accounts" element={<WalletAccounts />} />
         <Route path="/wallet/assets/categories" element={<WalletCategories />} />
-        <Route path="/wallet/assets/labels" element={<WalletCategories />} />
-        <Route path="/wallet/assets/templates" element={<WalletCategories />} />
-        <Route path="/wallet/assets/recurring-transactions" element={<WalletCategories />} />
+        <Route path="/wallet/assets/labels" element={<WalletLabels />} />
+        <Route path="/wallet/assets/templates" element={<WalletTemplates />} />
+        <Route path="/wallet/assets/recurring-transactions" element={<WalletRecurringTransactions />} />
 
         <Route path="/dashboard/analytics" element={<Analytics />} />
         <Route path="/dashboard/fintech" element={<Fintech />} />
