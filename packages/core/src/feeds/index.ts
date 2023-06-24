@@ -1,7 +1,6 @@
 import loki from 'lokijs';
 
-import { Account, Transaction, Label, RecurringTransaction, Category } from '../lookups';
-import { ApplicationFeed } from './types';
+import { Account, Transaction, Label, RecurringTransaction, Category, Budget, RecurringBudget } from '../lookups';
 
 const db = new loki('application.db');
 
@@ -23,14 +22,24 @@ const labelsCollection = db.addCollection<Label>('labels', {
 
 const categoriesCollection = db.addCollection<Category>('categories', {
   unique: ['id'],
-})
+});
 
-const feed: ApplicationFeed = {
+const budgetsCollection = db.addCollection<Budget>('budgets', {
+  unique: ['id'],
+});
+
+const recurringBudgetCollection = db.addCollection<RecurringBudget>('recurringBudgets', {
+  unique: ['id'],
+});
+
+const feed = {
   accounts: accountsCollection,
   transactions: transactionsCollection,
   labels: labelsCollection,
   recurringTransactions: recurringTransactionsCollection,
   categories: categoriesCollection,
+  budgets: budgetsCollection,
+  recurringBudgets: recurringBudgetCollection,
 };
 
 export default feed;

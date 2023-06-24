@@ -639,6 +639,15 @@
   dependencies:
     mini-svg-data-uri "^1.2.3"
 
+"@types/@breejs/later":
+  version "4.1.0"
+  resolved "https://codeload.github.com/breejs/later/tar.gz/59094cee89a39743f3dc2c3b803fc60a68f01441"
+
+"@types/breejs__later@^4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@types/breejs__later/-/breejs__later-4.1.2.tgz#30a3f377e955609c9fa05d802a1095299eac389f"
+  integrity sha512-qTLhBWIdaFcBhYu/2eg2B4bjXXtGKzKfN+Hpmr3A2fyXJx4hx1nMcP84NpfYAjZ8ktKsXhu37/P41W3x/cP7jg==
+
 "@types/cacheable-request@^6.0.1":
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/@types/cacheable-request/-/cacheable-request-6.0.3.tgz#a430b3260466ca7b5ca5bfd735693b36e7a9d183"
@@ -1778,11 +1787,6 @@ keyv@^4.0.0:
   integrity sha512-5MHbFaKn8cNSmVW7BYnijeAVlE4cYA/SVkifVgrh7yotnfhKmjuXpDKjrABLnT0SfHWV21P8ow07OGfRrNDg8g==
   dependencies:
     json-buffer "3.0.1"
-
-later@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/later/-/later-1.2.0.tgz#f2cf6c4dd7956dd2f520adf0329836e9876bad0f"
-  integrity sha512-Gi4c6JariwTigfAQLFCyWKKtyY5yzMZOdJdUH9Ori4FqQxQYDREvDRTu5N+jBM7hcnyEDMeYjhmRUTwLIjEMqA==
 
 lilconfig@^2.0.5, lilconfig@^2.0.6:
   version "2.0.6"

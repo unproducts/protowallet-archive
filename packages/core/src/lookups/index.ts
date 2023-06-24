@@ -7,6 +7,13 @@ export type Account = {
   accent: string;
 };
 
+export type RecurringEntity = {
+  startDate: Date;
+  endToken?: Date | number;
+  endTokenType: EndRecurrenceBy;
+  cronExpr: string;
+};
+
 export type Transaction = {
   id: string;
   accountId: string;
@@ -29,12 +36,7 @@ export type RecurringTransaction = {
   amount: number;
   direction: RecordDirection;
   labels?: string[];
-
-  startDate: Date;
-  endToken?: Date | number;
-  endTokenType: EndRecurrenceBy;
-  cronExpr: string;
-};
+} & RecurringEntity;
 
 export type Label = {
   id: string;
@@ -55,6 +57,20 @@ export type Category = {
   title: string;
   description?: string;
 }
+
+export type Budget = {
+  id: string;
+  categories: number[];
+  labels: string[];
+  amount: number;
+  currency: Currency;
+  notes?: string;
+  isRecurring: boolean;
+  startDate: Date;
+  endDate?: Date;
+};
+
+export type RecurringBudget = Budget & RecurringEntity;
 
 export type Range<T> = {
   from: T;
