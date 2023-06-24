@@ -14,7 +14,7 @@ export type GetAllTransactionsOptions = {
   amountRange?: Partial<Range<number>>;
 };
 
-export type CreateTransactionOptions = Omit<Transaction, "id">;
+export type CreateTransactionOptions = Omit<Transaction, 'id'>;
 
 export async function createTransaction(options: CreateTransactionOptions): Promise<Transaction> {
   await assertAccountExists(options.accountId);
@@ -109,27 +109,28 @@ function flattenRecurringTransaction(recurringTransaction: RecurringTransaction,
 
 function prepareQueryFromOptions(options: GetAllTransactionsOptions) {
   const query: Record<string, any> = {
-    '$and': [
-        {'timestamp':
-              {
-                "$gte": options.dateRange.from.getTime()
-              }
+    $and: [
+      {
+        timestamp: {
+          $gte: options.dateRange.from.getTime(),
         },
-        {'timestamp':
-              {
-                "$lte": options.dateRange.to.getTime()
-              }
-        }
-    ]}
+      },
+      {
+        timestamp: {
+          $lte: options.dateRange.to.getTime(),
+        },
+      },
+    ],
+  };
 
   if (options.accounts) {
     query.accountId = {
-      "$in": options.accounts,
+      $in: options.accounts,
     };
   }
   if (options.categories) {
     query.category = {
-      "$in": options.categories,
+      $in: options.categories,
     };
   }
 
