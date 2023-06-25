@@ -61,7 +61,7 @@ export default function NewCategoryForm() {
               <input type="checkbox" id="company-toggle" className="sr-only" checked={toggle1} onChange={() => setToggle1(!toggle1)} />
               <label className="bg-slate-400" htmlFor="company-toggle">
                 <span className="bg-white shadow-sm" aria-hidden="true"></span>
-                <span className="sr-only">Company Culture</span>
+                <span className="sr-only"></span>
               </label>
             </div>
             <div className="text-sm text-slate-400 italic ml-2">{toggle1 ? 'On' : 'Off'}</div>
