@@ -60,6 +60,7 @@ export type Category = {
 
 export type Budget = {
   id: string;
+  title: string;
   categories: number[];
   labels: string[];
   amount: number;
@@ -68,6 +69,10 @@ export type Budget = {
   isRecurring: boolean;
   startDate: Date;
   endDate?: Date;
+};
+
+export type ComputedBudget = Budget & {
+  spent: number;
 };
 
 export type RecurringBudget = Budget & RecurringEntity;
