@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import DatePicker from 'react-flatpickr';
 import Select from 'react-select';
+import ColorPicker from './ColorPicker';
 
 export default function NewCategoryForm() {
   const [accountOptions, setAccountOptions] = useState([
@@ -17,7 +18,7 @@ export default function NewCategoryForm() {
   ]);
   const [categoryOptions, setCategoryOptions] = useState([
     {
-      value: 'test-cateogry',
+      value: 'test-category',
       label: 'Test',
     },
   ]);
@@ -48,11 +49,11 @@ export default function NewCategoryForm() {
           />
         </div>
         <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="name">
-              Category Icon    <span className="text-rose-500">*</span>
-            </label>
-            <Select options={accountOptions} isMulti />
-          </div>
+          <label className="block text-sm font-medium mb-1" htmlFor="name">
+            Category Accent <span className="text-rose-500">*</span>
+          </label>
+          <ColorPicker />
+        </div>
         {/* Start */}
         <div>
           <div className="text-sm text-slate-800 font-semibold mb-3">Sub Category</div>
@@ -72,7 +73,7 @@ export default function NewCategoryForm() {
         {toggle1 ? (
           <div>
             <label className="block text-sm font-medium mb-1" htmlFor="name">
-              Master Category    <span className="text-rose-500">*</span>
+              Master Category <span className="text-rose-500">*</span>
             </label>
             <Select options={accountOptions} isMulti />
           </div>
