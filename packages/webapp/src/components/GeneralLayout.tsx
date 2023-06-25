@@ -1,6 +1,6 @@
 import React from "react";
 
-import GeneralSidebar from "../partials/GeneralSidebar";
+import GeneralSidebar from "./sidebar/GeneralSidebar";
 
 const GeneralLayout = (props) => {
   return (

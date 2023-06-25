@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { ComputedBudget } from '../types';
+import { ComputedBudget } from '../../types';
 import { enums } from '@wallet/core';
-import BudgetCard from '../components/cards/BudgetCard';
-import BudgetSidebar from '../components/cards/BudgetSidebar';
+import BudgetCard from './BudgetCard';
+import BudgetSidebar from './BudgetSidebar';
 
 // import NewAccountModal from '../../partials/wallet/NewAccountModal';
 

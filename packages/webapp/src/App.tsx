@@ -7,10 +7,10 @@ import {
 
 import './css/style.css';
 
-import './charts/ChartjsConfig';
+import './ChartjsConfig';
 
-import GeneralLayout from './layouts/GeneralLayout';
-import Budgets from './pages/budgets';
+import GeneralLayout from './components/GeneralLayout';
+import Budgets from './components/budgets/budgets';
 
 function App() {
 
