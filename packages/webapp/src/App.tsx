@@ -11,6 +11,8 @@ import './ChartjsConfig';
 
 import GeneralLayout from './components/GeneralLayout';
 import Budgets from './components/budgets/budgets';
+import Accounts from './components/accounts/accounts';
+import Transactions from './components/transactions/Transactions';
 
 function App() {
 
@@ -29,11 +31,13 @@ function App() {
 
   return (
     <>
-    <GeneralLayout>
-      <Routes>
-        <Route path="/budgets" element={<Budgets />} />
-      </Routes>
-    </GeneralLayout>
+      <GeneralLayout>
+        <Routes>
+          <Route path="/budgets" element={<Budgets />} />
+          <Route path="/accounts" element={<Accounts />} />
+          <Route path="/transactions" element={<Transactions />} />
+        </Routes>
+      </GeneralLayout>
     </>
   );
 }

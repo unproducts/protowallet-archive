@@ -35,7 +35,7 @@ function Budgets() {
           {/* <NewAccountModal /> */}
         </div>
 
-        {/* Credit cards */}
+        {/* Budget cards */}
         <div className="flex flex-col space-y-2">
           <BudgetCard budget={computedBudgets[0]} isSelected={true}/>
           <BudgetCard budget={computedBudgets[0]} isSelected={false}/>
