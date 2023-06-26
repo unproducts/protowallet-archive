@@ -8,7 +8,7 @@ const AccountIcon = (props: IconProps) => {
       className={props.className}
       viewBox="0 0 24 24"
       strokeWidth="2"
-      stroke={props.strokeColor || "#94a3b8"}
+      stroke={props.strokeColor || "currentColor"}
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"

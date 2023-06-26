@@ -1,47 +1,26 @@
-import React, { useEffect } from 'react';
-import { ComputedBudget } from '../../types';
-import WalletIcon from '../../icons/WalletIcon';
-
-
-export type AccountDetails = {
-	title: string;
-	amount: string;
-}
-
+import React from 'react';
+import { CalculatedAccount } from '../../types';
+import AccountIcon from '../../icons/AccountIcon';
+import { formatAmount, formatDate } from '../../utils/Utils';
 
 export type AccountCardProps = {
-	accountDetails: AccountDetails;
+  account: CalculatedAccount;
 };
 
-const AccountCard = ({ accountDetails }: AccountCardProps) => {
-
-	useEffect(() => {
-		console.log(accountDetails);
-	});
-
-	return (
-		<label className="relative block cursor-pointer text-left w-full">
-			<input type="radio" name="radio-buttons" className="peer sr-only" defaultChecked />
-			<div className="p-4 rounded border border-slate-200 hover:border-slate-300 shadow-sm duration-150 ease-in-out">
-				<div className="grid grid-cols-12 items-center gap-x-2">
-					{/* Card */}
-					<WalletIcon className="w-8 h-8 shrink-0 text-slate-400 mr-2" />
-					{/* Name */}
-					<div className="col-span-6 order-2 sm:order-none sm:col-span-3 text-left sm:text-center">
-						<div className="text-sm font-medium text-slate-800 truncate">{accountDetails?.title}</div>
-					</div>
-					{/* Card limits */}
-					<div className="col-span-6 order-1 sm:order-none sm:col-span-4 text-right sm:text-center lg:col-start-12">
-						<div className="text-sm">{accountDetails?.amount}</div>
-					</div>
-				</div>
-			</div>
-			<div
-				className="absolute inset-0 border-2 border-transparent peer-checked:border-indigo-400 rounded pointer-events-none"
-				aria-hidden="true"
-			/>
-		</label>
-	);
+const AccountCard = ({ account }: AccountCardProps) => {
+  return (
+    <div className="border border-accent-1-300 bg-accent-1-100 rounded-md p-4 text-accent-1-300">
+      <div className="flex items-center justify-between h5 font-bold">
+        <span className='flex items-center'>
+          <AccountIcon className="w-5 h-5 mr-1" />
+          {account.name}
+        </span>
+      </div>
+      <div className="h1">
+        {formatAmount(account.balance, 'USD')}
+      </div>
+    </div>
+  );
 };
 
 export default AccountCard;

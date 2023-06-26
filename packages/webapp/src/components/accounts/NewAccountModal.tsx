@@ -10,7 +10,7 @@ export default function NewAccountModal() {
       <div className="m-1.5">
         {/* Start */}
         <button
-          className="btn bg-indigo-500 hover:bg-indigo-600 text-white"
+          className="btn bg-primary-500 hover:bg-primary-600 text-white"
           aria-controls="feedback-modal"
           onClick={(e) => {
             e.stopPropagation();
@@ -37,7 +37,7 @@ export default function NewAccountModal() {
               >
                 Cancel
               </button>
-              <button className="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white">Send</button>
+              <button className="btn-sm bg-primary-500 hover:bg-primary-600 text-white">Create</button>
             </div>
           </div>
         </ModalBasic>
