@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import DatepickerSingle from '../shared/DatepickerSingle';
 import Select from 'react-select';
-import { recordTypes } from './constants';
-import { recurringTypes } from './constants';
+import { recordTypes, endRecurrenceBy } from '../../constants';
 import { Cron } from 'react-js-cron';
 import 'react-js-cron/dist/styles.css';
 import { SingleValueType } from '../../types';
@@ -27,7 +26,7 @@ export default function NewRecurringTransactionForm() {
   const [cronExpr, setCronExpr] = useState<string>('');
 
   const recordTypesOptions = recordTypes.map((recordType) => ({ value: recordType, label: recordType }));
-  const recurringTypeOptions = recurringTypes.map((recurringType) => ({ value: recurringType, label: recurringType }));
+  const recurringTypeOptions = endRecurrenceBy.map((recurringType) => ({ value: recurringType, label: recurringType }));
 
   return (
     <div className="px-5 py-4">

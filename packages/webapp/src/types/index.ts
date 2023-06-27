@@ -1,4 +1,4 @@
-import { lookups } from '@wallet/core';
+import { enums, lookups } from '@wallet/core';
 import { MultiValue, SingleValue } from 'react-select';
 
 export type Budget = lookups.Budget;
@@ -13,5 +13,6 @@ export type CalculatedAccount = lookups.CalculatedAccount;
 export type Range<T> = lookups.Range<T>;
 export type RecurringBudget = lookups.RecurringBudget;
 
+// UI Specific
 export type SingleValueType = SingleValue<{ value: string; label: string }>;
 export type MultiValueType = MultiValue<{ value: string; label: string }>;
