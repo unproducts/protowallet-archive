@@ -13,11 +13,11 @@ type Transaction = {
 }
 
 type TransactionTableProps = {
-  selectedItems: Dispatch<SetStateAction<any>>;
+  setTransactions: Dispatch<SetStateAction<any>>;
 }
 
 function TransactionsTable({
-  selectedItems
+  setTransactions: selectedItems
 }: TransactionTableProps) {
 
   const transactions: Transaction[] = [

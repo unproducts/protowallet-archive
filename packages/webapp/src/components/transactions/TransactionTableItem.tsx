@@ -35,7 +35,8 @@ function TransactionsTableItem(props) {
       <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap md:w-1/2">
         <div className="flex items-center">
           <div className="w-9 h-9 shrink-0 mr-2 sm:mr-3">
-            <img className="rounded-full" src={props.image} width="36" height="36" alt={props.name} />
+            {/* <img className="rounded-full" src={props.image} width="36" height="36" alt={props.name} /> */}
+            {props.image}
           </div>
           <div className="font-medium text-slate-800">{props.name}</div>
         </div>
