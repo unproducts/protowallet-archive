@@ -1,142 +1,110 @@
 import React, { useState, useEffect } from 'react';
 import RecurringTransactionTableItem from './recurringTransactionTableItem';
 
-import Image01 from '../../icons/AccountIcon';
-
 function RecurringTransactionTable({
   // selectedItems
 }) {
 
-  const orders = [
+  const invoices = [
     {
       id: '0',
-      image: Image01,
-      order: '#123567',
-      date: '22/01/2021',
-      customer: 'Patricia Semklo',
+      invoice: '#123567',
       total: '$129.00',
-      status: 'Refunded',
-      items: '1',
-      location: '🇨🇳 Shanghai, CN',
+      status: 'Overdue',
+      customer: 'Dominik Lamakani',
+      issueddate: '22/07/2021',
+      paiddate: '-',
       type: 'Subscription',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
     {
       id: '1',
-      image: Image01,
-      order: '#779912',
-      date: '22/01/2021',
-      customer: 'Dominik Lamakani',
-      total: '$89.00',
-      status: 'Approved',
-      items: '2',
-      location: '🇲🇽 Mexico City, MX',
+      invoice: '#779912',
+      total: '$59.00',
+      status: 'Paid',
+      customer: 'Mark Cameron',
+      issueddate: '19/07/2021',
+      paiddate: '20/07/2021',
       type: 'Subscription',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
     {
       id: '2',
-      image: Image01,
-      order: '#889924',
-      date: '22/01/2021',
-      customer: 'Ivan Mesaros',
+      invoice: '#889924',
       total: '$89.00',
-      status: 'Approved',
-      items: '2',
-      location: '🇮🇹 Milan, IT',
+      status: 'Paid',
+      customer: 'Sergio Gonnelli',
+      issueddate: '17/07/2021',
+      paiddate: '19/07/2021',
       type: 'One-time',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
     {
       id: '3',
-      image: Image01,
-      order: '#897726',
-      date: '22/01/2021',
-      customer: 'Maria Martinez',
-      total: '$59.00',
-      status: 'Pending',
-      items: '1',
-      location: '🇮🇹 Bologna, IT',
-      type: 'One-time',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      invoice: '#897726',
+      total: '$129.00',
+      status: 'Due',
+      customer: 'Manuel Garbaya',
+      issueddate: '04/07/2021',
+      paiddate: '-',
+      type: 'Subscription',
     },
     {
       id: '4',
-      image: Image01,
-      order: '#123567',
-      date: '22/01/2021',
-      customer: 'Vicky Jung',
-      total: '$39.00',
-      status: 'Refunded',
-      items: '1',
-      location: '🇬🇧 London, UK',
+      invoice: '#123567',
+      total: '$129.00',
+      status: 'Due',
+      customer: 'Cool Robot',
+      issueddate: '04/07/2021',
+      paiddate: '-',
       type: 'Subscription',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
     {
       id: '5',
-      image: Image01,
-      order: '#896644',
-      date: '21/01/2021',
-      customer: 'Tisho Yanchev',
-      total: '$59.00',
-      status: 'Approved',
-      items: '1',
-      location: '🇫🇷 Paris, FR',
+      invoice: '#896644',
+      total: '$129.00',
+      status: 'Paid',
+      customer: 'Mark Cameron',
+      issueddate: '04/07/2021',
+      paiddate: '09/07/2021',
       type: 'One-time',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
     {
       id: '6',
-      image: Image01,
-      order: '#136988',
-      date: '21/01/2021',
-      customer: 'James Cameron',
-      total: '$89.00',
-      status: 'Approved',
-      items: '1',
-      location: '🇫🇷 Marseille, FR',
-      type: 'Subscription',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      invoice: '#136988',
+      total: '$69.00',
+      status: 'Paid',
+      customer: 'Glenn Thomas',
+      issueddate: '01/07/2021',
+      paiddate: '01/07/2021',
+      type: 'One-time',
     },
     {
       id: '7',
-      image: Image01,
-      order: '#442206',
-      date: '21/01/2021',
-      customer: 'Haruki Masuno',
+      invoice: '#442206',
       total: '$129.00',
-      status: 'Approved',
-      items: '2',
-      location: '🇺🇸 New York, USA',
+      status: 'Overdue',
+      customer: 'Dominik Lamakani',
+      issueddate: '22/06/2021',
+      paiddate: '-',
       type: 'Subscription',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
     {
       id: '8',
-      image: Image01,
-      order: '#764321',
-      date: '21/01/2021',
-      customer: 'Joe Huang',
+      invoice: '#764321',
       total: '$89.00',
-      status: 'Pending',
-      items: '2',
-      location: '🇨🇳 Shanghai, CN',
+      status: 'Paid',
+      customer: 'Brian Halligan',
+      issueddate: '21/06/2021',
+      paiddate: '29/06/2021',
       type: 'One-time',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
     {
       id: '9',
-      image: Image01,
-      order: '#908764',
-      date: '21/01/2021',
+      invoice: '#908764',
+      total: '$129.00',
+      status: 'Due',
       customer: 'Carolyn McNeail',
-      total: '$59.00',
-      status: 'Refunded',
-      items: '1',
-      location: '🇬🇧 Sheffield, UK',
+      issueddate: '17/06/2021',
+      paiddate: '-',
       type: 'Subscription',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     }
   ];
 
@@ -145,7 +113,7 @@ function RecurringTransactionTable({
   const [list, setList] = useState<any>([]);
 
   useEffect(() => {
-    setList(orders);
+    setList(invoices);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -174,15 +142,15 @@ function RecurringTransactionTable({
   return (
     <div className="bg-white shadow-lg rounded-sm border border-slate-200 relative">
       <header className="px-5 py-4">
-        <h2 className="font-semibold text-slate-800">All Orders <span className="text-slate-400 font-medium">442</span></h2>
+        <h2 className="font-semibold text-slate-800">Invoices <span className="text-slate-400 font-medium">67</span></h2>
       </header>
       <div>
 
         {/* Table */}
         <div className="overflow-x-auto">
-          <table className="table-auto w-full divide-y divide-slate-200">
+          <table className="table-auto w-full">
             {/* Table header */}
-            <thead className="text-xs uppercase text-slate-500 bg-slate-50 border-t border-slate-200">
+            <thead className="text-xs font-semibold uppercase text-slate-500 bg-slate-50 border-t border-b border-slate-200">
               <tr>
                 <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                   <div className="flex items-center">
@@ -193,13 +161,7 @@ function RecurringTransactionTable({
                   </div>
                 </th>
                 <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                  <div className="font-semibold text-left">Order</div>
-                </th>
-                <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                  <div className="font-semibold text-left">Date</div>
-                </th>
-                <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                  <div className="font-semibold text-left">Customer</div>
+                  <div className="font-semibold text-left">Invoice</div>
                 </th>
                 <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                   <div className="font-semibold text-left">Total</div>
@@ -208,42 +170,44 @@ function RecurringTransactionTable({
                   <div className="font-semibold text-left">Status</div>
                 </th>
                 <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                  <div className="font-semibold">Items</div>
+                  <div className="font-semibold text-left">Customer</div>
                 </th>
                 <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                  <div className="font-semibold text-left">Location</div>
+                  <div className="font-semibold text-left">Issued on</div>
                 </th>
                 <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                  <div className="font-semibold text-left">Payment type</div>
+                  <div className="font-semibold text-left">Paid on</div>
                 </th>
                 <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                  <span className="sr-only">Menu</span>
+                  <div className="font-semibold text-left">Type</div>
+                </th>
+                <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                  <div className="font-semibold text-left">Actions</div>
                 </th>
               </tr>
             </thead>
             {/* Table body */}
-            {
-              list.map(order => {
-                return (
-                  <RecurringTransactionTableItem
-                    key={order.id}
-                    id={order.id}
-                    image={order.image}
-                    order={order.order}
-                    date={order.date}
-                    customer={order.customer}
-                    total={order.total}
-                    status={order.status}
-                    items={order.items}
-                    location={order.location}
-                    type={order.type}
-                    description={order.description}
-                    handleClick={handleClick}
-                    isChecked={isCheck.includes(order.id)}
-                  />
-                )
-              })
-            }
+            <tbody className="text-sm divide-y divide-slate-200">
+              {
+                list.map(invoice => {
+                  return (
+                    <RecurringTransactionTableItem
+                      key={invoice.id}
+                      id={invoice.id}
+                      invoice={invoice.invoice}
+                      total={invoice.total}
+                      status={invoice.status}
+                      customer={invoice.customer}
+                      issueddate={invoice.issueddate}
+                      paiddate={invoice.paiddate}
+                      type={invoice.type}
+                      handleClick={handleClick}
+                      isChecked={isCheck.includes(invoice.id)}
+                    />
+                  )
+                })
+              }
+            </tbody>
           </table>
 
         </div>
