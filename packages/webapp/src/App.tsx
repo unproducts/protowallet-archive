@@ -11,8 +11,9 @@ import './ChartjsConfig';
 
 import GeneralLayout from './components/GeneralLayout';
 import Budgets from './components/budgets/budgets';
-import Accounts from './components/accounts/accounts';
+import Accounts from './components/accounts/Accounts';
 import Transactions from './components/transactions/Transactions';
+import Labels from './components/labels/Labels';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/budgets" element={<Budgets />} />
           <Route path="/accounts" element={<Accounts />} />
           <Route path="/transactions" element={<Transactions />} />
+          <Route path="/labels" element={<Labels />} />
         </Routes>
       </GeneralLayout>
     </>
