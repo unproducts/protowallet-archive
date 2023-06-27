@@ -1,10 +1,19 @@
 import { Currency, EndRecurrenceBy, RecordDirection, RecordType } from './enums';
 
+export type TimestampedEntity = {
+  createdAt: Date;
+}
+
 export type Account = {
   id: string;
   name: string;
   index: number;
   accent: string;
+  initialBalance: number;
+} & TimestampedEntity;
+
+export type CalculatedAccount = Omit<Account, 'intialBalance'> & {
+  balance: number;
 };
 
 export type RecurringEntity = {

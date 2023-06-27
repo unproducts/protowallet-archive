@@ -19,6 +19,8 @@ export async function createAccount(options: CreateAccountOptions): Promise<Acco
     name: options.name,
     index: options.index ? options.index : totalAccounts,
     accent: options.accent ? options.accent : generateRandomColor(),
+    createdAt: new Date(),
+    initialBalance: options.initialBalance ? options.initialBalance : 0,
   };
   return feed.accounts.insert(account) as Account;
 }
@@ -36,6 +38,7 @@ export async function assertAccountExists(accountId: string): Promise<void> {
 
 export type CreateAccountOptions = {
   name: string,
+  initialBalance?: number,
   index?: number,
   accent?: string,
 };
