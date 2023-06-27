@@ -5,8 +5,8 @@ import { Label, SetStateActionType } from '../../types';
 
 type LabelModalProps = {
   openModal: boolean,
-  setOpenModal: SetStateActionType<boolean>
   labelDetails?: Label
+  setOpenModal: SetStateActionType<boolean>
 }
 
 export default function LabelModal({ openModal, setOpenModal, labelDetails }: LabelModalProps) {
