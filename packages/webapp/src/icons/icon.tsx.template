@@ -1,7 +1,7 @@
 import React from "react";
 import { IconProps } from "./props";
 
-// stroke={props.strokeColor || "#94a3b8"}
+// stroke={props.strokeColor || "currentColor"}
 
 const XYZIcon = (props: IconProps) => {
     return (
