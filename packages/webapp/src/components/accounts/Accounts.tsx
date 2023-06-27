@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import NewAccountModal from './NewAccountModal';
+import NewAccountModal from './AccountModal';
 import AccountCard from './AccountCard';
 import { CalculatedAccount } from '../../types';
 
