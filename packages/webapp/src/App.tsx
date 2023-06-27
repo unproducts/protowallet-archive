@@ -13,6 +13,7 @@ import GeneralLayout from './components/GeneralLayout';
 import Budgets from './components/budgets/budgets';
 import Accounts from './components/accounts/Accounts';
 import Transactions from './components/transactions/Transactions';
+import RecurringTransactions from './components/recurring transactions/recurringTransactions';
 import Labels from './components/labels/Labels';
 import Categories from './components/categories/Categories';
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/budgets" element={<Budgets />} />
           <Route path="/accounts" element={<Accounts />} />
           <Route path="/transactions" element={<Transactions />} />
+          <Route path="/recurringTransactions" element={<RecurringTransactions />} />
           <Route path="/labels" element={<Labels />} />
           <Route path="/categories" element={<Categories />} />
         </Routes>
