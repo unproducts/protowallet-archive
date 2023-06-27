@@ -82,7 +82,7 @@ function Transactions() {
             <div className="text-sm text-slate-500 italic">Showing {txs.length} Transactions</div>
           </div>
 
-          {/* <TransactionsTable setTransactions={setTransactions} /> */}
+          <TransactionsTable setTransactions={setTransactions} />
         </div>
       </div>
     </div>
