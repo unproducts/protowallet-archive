@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Label } from '../../types';
 import LabelCard from './LabelCard';
+import PageTitle from '../shared/PageTitle';
+import LabelModal from './LabelModal';
 
 const generateRandomColor = () => {
   const randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -8,6 +10,7 @@ const generateRandomColor = () => {
 };
 
 const Labels = () => {
+  const [openLabelModal, setOpenLabelModal] = useState<boolean>(false);
   const labels: Label[] = [
     { id: 'label1', value: 'Label 1', accent: generateRandomColor() },
     { id: 'label2', value: 'Label 2', accent: generateRandomColor() },
@@ -17,11 +20,9 @@ const Labels = () => {
       {/* Page header */}
       <div className="sm:flex sm:justify-between sm:items-center mb-5">
         {/* Left: Title */}
-        <div className="mb-4 sm:mb-0">
-          <h1 className="text-2xl md:text-3xl text-slate-800 font-bold">Labels ✨</h1>
-        </div>
+        <PageTitle title='Labels' resourceName='Label' setOpenCreateModal={setOpenLabelModal}/>
         {/* Add card button */}
-        {/* <NewAccountModal /> */}
+        <LabelModal openModal={openLabelModal} setOpenModal={setOpenLabelModal}/>
       </div>
 
       {/* Credit cards */}
