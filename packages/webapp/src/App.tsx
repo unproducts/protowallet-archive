@@ -11,9 +11,10 @@ import './ChartjsConfig';
 
 import GeneralLayout from './components/GeneralLayout';
 import Budgets from './components/budgets/budgets';
-import Accounts from './components/accounts/accounts';
+import Accounts from './components/accounts/Accounts';
 import Transactions from './components/transactions/Transactions';
 import RecurringTransactions from './components/recurring transactions/recurringTransactions';
+import Labels from './components/labels/Labels';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/accounts" element={<Accounts />} />
           <Route path="/transactions" element={<Transactions />} />
           <Route path="/recurringTransactions" element={<RecurringTransactions />} />
+          <Route path="/labels" element={<Labels />} />
         </Routes>
       </GeneralLayout>
     </>
