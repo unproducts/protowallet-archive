@@ -5,9 +5,9 @@ function Accordion(props) {
   const [open, setOpen] = useState(props.show);
 
   return (
-    <div className="px-5 py-4 rounded-sm border border-slate-200">
+    <div className="rounded-sm px-2 py-1 border border-slate-200">
       <button
-        className="flex items-center justify-between w-full group mb-1"
+        className="flex items-center justify-between w-full group"
         aria-expanded={open}
         onClick={() => setOpen(!open)}
       >
