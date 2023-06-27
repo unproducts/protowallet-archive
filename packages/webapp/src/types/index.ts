@@ -8,6 +8,7 @@ export type Label = lookups.Label;
 export type RecurringTransaction = lookups.RecurringTransaction;
 export type Transaction = lookups.Transaction;
 export type Account = lookups.Account;
+export type CalculatedAccount = lookups.CalculatedAccount;
 
 export type Range<T> = lookups.Range<T>;
 export type RecurringBudget = lookups.RecurringBudget;

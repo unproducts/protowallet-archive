@@ -29,7 +29,7 @@ const IconsRecord: Record<string, React.FC<IconProps>> = {
   CategoriesIcon,
   TriggersIcon,
   BudgetIcon,
-  RecurringTransactionIcon
+  RecurringTransactionIcon,
 };
 
 const SidebarOption = (props: SidebarOptionProps) => {
@@ -39,6 +39,7 @@ const SidebarOption = (props: SidebarOptionProps) => {
   const SidebarIcon: React.FC<IconProps> = IconsRecord[props.icon];
 
   const primary500 = '#006EF4';
+  const generalSlate = '#94a3b8';
   return (
     <li className="mr-0.5 md:mr-0 md:mb-0.5">
       <NavLink
@@ -49,10 +50,12 @@ const SidebarOption = (props: SidebarOptionProps) => {
         {SidebarIcon && (
           <SidebarIcon
             className={`w-5 h-5 shrink-0 text-slate-400 mr-2 ${pathname.includes(props.pathName) && 'text-primary-500'}`}
-            strokeColor={pathname.includes(props.pathName) ? primary500 : undefined}
+            strokeColor={pathname.includes(props.pathName) ? primary500 : generalSlate}
           />
         )}
-        <span className={`text-sm font-medium ${pathname.includes(props.pathName) ? 'text-primary-600' : 'hover:text-slate-700'}`}>{props.label}</span>
+        <span className={`text-sm font-medium ${pathname.includes(props.pathName) ? 'text-primary-600' : 'hover:text-slate-700'}`}>
+          {props.label}
+        </span>
       </NavLink>
     </li>
   );
