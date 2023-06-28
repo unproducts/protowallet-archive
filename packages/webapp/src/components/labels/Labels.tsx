@@ -17,13 +17,10 @@ const Labels = () => {
   ];
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 w-full mx-auto">
-      {/* Page header */}
-      <div className="sm:flex sm:justify-between sm:items-center mb-5">
-        {/* Left: Title */}
-        <PageTitle title='Labels' resourceName='Label' setOpenCreateModal={setOpenLabelModal}/>
-        {/* Add card button */}
-        <LabelModal openModal={openLabelModal} setOpenModal={setOpenLabelModal}/>
-      </div>
+      {/* Left: Title */}
+      <PageTitle title='Labels' resourceName='Label' setOpenCreateModal={setOpenLabelModal} />
+      {/* Add card button */}
+      <LabelModal openModal={openLabelModal} setOpenModal={setOpenLabelModal} />
 
       {/* Credit cards */}
       <div className="grid grid-cols-12 gap-2">
