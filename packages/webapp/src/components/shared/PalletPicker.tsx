@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { SetStateActionType } from '../../types';
 
 export type PalletPickerProps = {
-  setPalletNumber: (palletNumber: number) => void;
+  setPalletNumber: SetStateActionType<number>;
 };
 
 export const TOTAL_PALLETS = 4;

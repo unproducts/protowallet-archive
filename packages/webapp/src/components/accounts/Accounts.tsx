@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import NewAccountModal from './AccountModal';
-import AccountCard from './AccountCard';
+import React, { useEffect, useState } from 'react';
 import { CalculatedAccount } from '../../types';
+import PageTitle from '../shared/PageTitle';
+import AccountCard from './AccountCard';
 
 function Accounts() {
   const createdDate1 = new Date();
@@ -20,16 +20,7 @@ function Accounts() {
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 w-full mx-auto">
       {/* Page header */}
-      <div className="sm:flex sm:justify-between sm:items-center mb-5">
-        {/* Left: Title */}
-        <div className="mb-4 sm:mb-0">
-          <h1 className="text-2xl md:text-3xl text-slate-800 font-bold">Accounts ✨</h1>
-        </div>
-        {/* Add card button */}
-        <NewAccountModal />
-      </div>
-
-      {/* Credit cards */}
+      <PageTitle title='Accounts' resourceName='account' />
       <div className="grid grid-cols-12 gap-2">
         {/* Card 1 */}
         {accountsData.map((account) => (

@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
 import PalletPicker from '../shared/PalletPicker';
-import { Label, SetStateActionType } from '../../types';
+import { FormProps, Label } from '../../types';
 
-type LabelFormProps = {
-  labelDetails?: Label,
-  setLabelDetails?: SetStateActionType<Label>,
-  setOpenModal: SetStateActionType<boolean>,
-}
-
-export default function LabelForm({ labelDetails, setLabelDetails, setOpenModal }: LabelFormProps) {
+export default function LabelForm({ resourceDetails: labelDetails, setResourceDetails: setLabelDetails, setOpenModal }: FormProps<Label>) {
   const [name, setName] = useState<string>(labelDetails?.value || '');
   const [accent, setAccent] = useState<string>(labelDetails?.accent || '');
 
   const createLabel = () => {
     // post call
+    setOpenModal(false);
   };
 
   const updateLabelDetails = () => {
     // put call
     setLabelDetails?.(prevState => ({ ...prevState, value: name, accent }));
+    setOpenModal(false);
   };
 
   return (

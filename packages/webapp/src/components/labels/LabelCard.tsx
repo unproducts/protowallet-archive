@@ -3,19 +3,19 @@ import LabelsIcon from '../../icons/LabelsIcon';
 import { Label } from '../../types';
 import EditIcon from '../../icons/EditIcon';
 import DeleteIcon from '../../icons/DeleteIcon';
-import LabelModal from './LabelModal';
+import ResourceModal from '../shared/ResourceModal';
 
 export type LabelCardProps = {
   label: Label;
 };
 
-const LabelCard = ({label}: LabelCardProps) => {
+const LabelCard = ({ label }: LabelCardProps) => {
   const [openLabelModal, setOpenLabelModal] = useState<boolean>(false);
   const [labelDetails, setLabelDetails] = useState<Label>(label);
 
   return (
     <>
-      <LabelModal openModal={openLabelModal} setOpenModal={setOpenLabelModal} labelDetails={labelDetails} setLabelDetails={setLabelDetails} />
+      <ResourceModal openModal={openLabelModal} setOpenModal={setOpenLabelModal} resourceDetails={labelDetails} setResourceDetails={setLabelDetails} resourceName='label' />
       <div className="flex justify-between border rounded-md p-4">
         <span className="flex items-center font-medium">
           {/* <LabelsIcon className="w-5 h-5 mr-1" /> */}
