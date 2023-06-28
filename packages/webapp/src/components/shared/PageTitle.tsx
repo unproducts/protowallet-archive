@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import ResourceModal from "./ResourceModal";
+import { ResourceName } from "../../types";
 
 type PageTitleProps = {
   title: string
-  resourceName?: string,
+  resourceName?: ResourceName,
 }
 
 function PageTitle({ title, resourceName }: PageTitleProps) {

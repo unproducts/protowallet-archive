@@ -2,19 +2,19 @@ import React from 'react';
 import ModalBasic from './ModalBasic';
 import LabelForm from '../labels/LabelForm';
 import AccountForm from '../accounts/AccountForm';
-import { SetStateActionType } from '../../types';
+import { ResourceName, SetStateActionType } from '../../types';
 
 type LabelModalProps<ResourceType> = {
   openModal: boolean,
   resourceDetails?: ResourceType,
   setOpenModal: SetStateActionType<boolean>,
   setResourceDetails?: SetStateActionType<ResourceType>
-  resourceName: string
+  resourceName: ResourceName
 }
 
-const FORMS_LIST: Record<string, React.FC<any>> = {
+const FORMS_LIST: Record<ResourceName, React.FC<any>> = {
+  'account': AccountForm,
   'label': LabelForm,
-  'account': AccountForm
 }
 
 export default function ResourceModal<ResourceType>({ openModal, resourceName, resourceDetails, setResourceDetails, setOpenModal }: LabelModalProps<ResourceType>) {
