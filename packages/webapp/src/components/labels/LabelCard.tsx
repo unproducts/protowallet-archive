@@ -9,17 +9,18 @@ export type LabelCardProps = {
   label: Label;
 };
 
-const LabelCard = (props: LabelCardProps) => {
+const LabelCard = ({label}: LabelCardProps) => {
   const [openLabelModal, setOpenLabelModal] = useState<boolean>(false);
-  const { label } = props;
+  const [labelDetails, setLabelDetails] = useState<Label>(label);
+
   return (
     <>
-      <LabelModal openModal={openLabelModal} setOpenModal={setOpenLabelModal} labelDetails={label} />
+      <LabelModal openModal={openLabelModal} setOpenModal={setOpenLabelModal} labelDetails={labelDetails} setLabelDetails={setLabelDetails} />
       <div className="flex justify-between border rounded-md p-4">
         <span className="flex items-center font-medium">
           {/* <LabelsIcon className="w-5 h-5 mr-1" /> */}
-          <div className="h-5 w-5 rounded mr-2" style={{ backgroundColor: label.accent }}></div>
-          {label.value}
+          <div className="h-5 w-5 rounded mr-2" style={{ backgroundColor: labelDetails.accent }}></div>
+          {labelDetails.value}
         </span>
         <span className='flex items-center justify-around'>
           <button className="text-slate-400 hover:text-slate-500 border rounded-lg p-0.5 mr-1" onClick={() => setOpenLabelModal(true)}>
