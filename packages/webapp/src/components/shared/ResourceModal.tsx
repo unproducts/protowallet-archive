@@ -1,6 +1,7 @@
 import React from 'react';
 import ModalBasic from './ModalBasic';
 import LabelForm from '../labels/LabelForm';
+import AccountForm from '../accounts/AccountForm';
 import { SetStateActionType } from '../../types';
 
 type LabelModalProps<ResourceType> = {
@@ -12,7 +13,8 @@ type LabelModalProps<ResourceType> = {
 }
 
 const FORMS_LIST: Record<string, React.FC<any>> = {
-  'label': LabelForm
+  'label': LabelForm,
+  'account': AccountForm
 }
 
 export default function ResourceModal<ResourceType>({ openModal, resourceName, resourceDetails, setResourceDetails, setOpenModal }: LabelModalProps<ResourceType>) {

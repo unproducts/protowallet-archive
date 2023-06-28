@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PalletPicker from '../shared/PalletPicker';
-import { FormProps, Label, SetStateActionType } from '../../types';
+import { FormProps, Label } from '../../types';
 
 export default function LabelForm({ resourceDetails: labelDetails, setResourceDetails: setLabelDetails, setOpenModal }: FormProps<Label>) {
   const [name, setName] = useState<string>(labelDetails?.value || '');
