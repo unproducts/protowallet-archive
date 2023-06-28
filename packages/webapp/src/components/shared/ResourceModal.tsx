@@ -26,7 +26,8 @@ export default function ResourceModal<ResourceType>({ openModal, resourceName, r
       {/* Send Feedback */}
       <div className="m-1.5">
         {/* Start */}
-        <ModalBasic id="feedback-modal" modalOpen={openModal} setModalOpen={setOpenModal} title="Send Feedback">
+        <ModalBasic id="feedback-modal" modalOpen={openModal} setModalOpen={setOpenModal} title={`${resourceDetails ? 'Edit' : 'Create'} ${resourceName.charAt(0).toUpperCase()
+          + resourceName.slice(1)}`}>
           {/* Modal content */}
           <Form resourceDetails={resourceDetails} setResourceDetails={setResourceDetails} setOpenModal={setOpenModal} />
           {/* Modal footer */}
