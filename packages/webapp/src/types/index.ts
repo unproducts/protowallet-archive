@@ -18,3 +18,8 @@ export type RecurringBudget = lookups.RecurringBudget;
 export type SingleValueType = SingleValue<{ value: string; label: string }>;
 export type MultiValueType = MultiValue<{ value: string; label: string }>;
 export type SetStateActionType<T> = Dispatch<SetStateAction<T>>;
+export type FormProps<T> = {
+  resourceDetails?: T,
+  setResourceDetails?: SetStateActionType<T>,
+  setOpenModal: SetStateActionType<boolean>,
+}

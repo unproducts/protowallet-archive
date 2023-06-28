@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Label } from '../../types';
 import LabelCard from './LabelCard';
 import PageTitle from '../shared/PageTitle';
-import LabelModal from './LabelModal';
+import ResourceModal from '../shared/ResourceModal';
 
 const generateRandomColor = () => {
   const randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -20,7 +20,7 @@ const Labels = () => {
       {/* Left: Title */}
       <PageTitle title='Labels' resourceName='Label' setOpenCreateModal={setOpenLabelModal} />
       {/* Add card button */}
-      <LabelModal openModal={openLabelModal} setOpenModal={setOpenLabelModal} />
+      <ResourceModal openModal={openLabelModal} setOpenModal={setOpenLabelModal} resourceName='label'/>
 
       {/* Credit cards */}
       <div className="grid grid-cols-12 gap-2">
